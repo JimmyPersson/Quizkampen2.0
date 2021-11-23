@@ -16,8 +16,16 @@ public class Player extends Thread {
     PrintWriter output;
     WelcomePanel welcomePanel;
 
+    public Socket getSocket() {
+        return socket;
+    }
+    public String getPlayerName() {
+        return playerName;
+    }
+
     public Player(Socket socket, String playerName, WelcomePanel welcomePanel) {
         this.socket = socket;
+        System.out.println(socket);
         this.playerName = playerName;
         this.welcomePanel = welcomePanel;
         try {

@@ -4,7 +4,6 @@ import GUI.WelcomePanel;
 
 import java.net.ServerSocket;
 
-// Test
 public class Server {
 
     public static void main(String[] args) throws Exception {
@@ -15,15 +14,15 @@ public class Server {
 
               Player player1
                         = new Player(listener.accept(), "1", null );
+                System.out.println("Player 1 anslöt");
                 Player player2
                         = new Player(listener.accept(), "2", null );
-                WelcomePanel wp = new WelcomePanel(player1, player2);
-
+                System.out.println("Player 2 anslöt");
+                WelcomePanel wp = new WelcomePanel(player1.getSocket(),player1, player2);
 
                 player1.setOpponent(player2);
                 player2.setOpponent(player1);
-               // wp.currentPlayer = player1;
-                player1.start();
+                wp.run();
             }
         } finally {
             listener.close();

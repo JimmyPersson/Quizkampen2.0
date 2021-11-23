@@ -1,12 +1,14 @@
 package Client;
 
 import GUI.GamePanel;
+import Server.Player;
 
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
@@ -27,8 +29,10 @@ public class Client extends JFrame {
     private PrintWriter out;
 
     public Client(String serverAddress) throws Exception {
-       // GamePanel test = new GamePanel();
         this.setVisible(true);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(500, 500);
+        this.setResizable(true);
 
         socket = new Socket(serverAddress, PORT);
         in = new BufferedReader(new InputStreamReader(
@@ -37,14 +41,17 @@ public class Client extends JFrame {
 
     }
 
-   /* public void play() throws Exception {
-        String response;
-        try {
-            response = in.readLine();
-            if (response.startsWith("<WAITING>")) {
-                this.setTitle("Waiting for player");
-            }
-            while (true) {
+   public void play() throws Exception {
+       String response;
+       while (true){
+       try {
+           response = in.readLine();
+           if (response.startsWith("WELCOME")) {
+               this.setTitle("Welcome");
+
+           }
+
+           /* while (true) {
                 response = in.readLine();
                 if (response.startsWith("<CATEGORY>")) {
                     this.removeAll();
@@ -86,19 +93,16 @@ public class Client extends JFrame {
         return response == JOptionPane.YES_OPTION;
     }
 */
+       } catch (IOException e) {
+           e.printStackTrace();
+       }}
+   }
+           public static void main (String[]args) throws Exception {
 
-    public static void main(String[] args) throws Exception {
-        while (true) {
-            String serverAddress = (args.length == 0) ? "localhost" : args[1];
-            Client cl = new Client(serverAddress);
-            /*this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            this.setSize(240, 160);
-            this.setVisible(true);
-            this.setResizable(true);
-            cl.play();
-            if (!this.wantsToPlayAgain()) {
-                break;
-            }*/
-        }
-    }
-}
+               String serverAddress = (args.length == 0) ? "localhost" : args[1];
+               Client cl = new Client(serverAddress);
+               cl.play();
+
+
+           }
+       }

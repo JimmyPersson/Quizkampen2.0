@@ -15,7 +15,7 @@ public class QuestionBuilder {
         String line;
         try (BufferedReader br = new BufferedReader(new FileReader("/Server/Database.txt"))) {
             while ((line = br.readLine()) != null) {
-                category = line.split("<CATEGORY>")[0];
+                category = line.split("--")[0];
                 question = line.split("<QUESTION>")[1];
                 answer1 = line.split("<ANSWER>")[2];
                 answer2 = line.split(",")[3];
