@@ -1,0 +1,1 @@
+<CATEGORY>, Matematik, <QUESTION>, Vad är 1+1, <ANSWER>, 2, 3, 4, 5
