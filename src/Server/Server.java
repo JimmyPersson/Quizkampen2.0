@@ -1,5 +1,7 @@
 package Server;
 
+import GUI.WelcomePanel;
+
 import java.net.ServerSocket;
 
 // Test
@@ -11,17 +13,17 @@ public class Server {
         try {
             while (true) {
 
-                ServerSidePlayer player1
-                        = new ServerSidePlayer(listener.accept(), '1');
-                ServerSidePlayer player2
-                        = new ServerSidePlayer(listener.accept(), '2');
-                ServerSideGame game = new ServerSideGame(player1, player2);
+              Player player1
+                        = new Player(listener.accept(), "1", null );
+                Player player2
+                        = new Player(listener.accept(), "2", null );
+                WelcomePanel wp = new WelcomePanel(player1, player2);
 
 
                 player1.setOpponent(player2);
                 player2.setOpponent(player1);
-                game.currentPlayer = player1;
-                game.start();
+               // wp.currentPlayer = player1;
+                player1.start();
             }
         } finally {
             listener.close();

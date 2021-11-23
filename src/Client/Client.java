@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+import javax.imageio.stream.ImageInputStream;
 import javax.swing.Icon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -26,7 +27,7 @@ public class Client extends JFrame {
     private PrintWriter out;
 
     public Client(String serverAddress) throws Exception {
-        GamePanel test = new GamePanel();
+       // GamePanel test = new GamePanel();
         this.setVisible(true);
 
         socket = new Socket(serverAddress, PORT);
@@ -35,25 +36,23 @@ public class Client extends JFrame {
         out = new PrintWriter(socket.getOutputStream(), true);
 
     }
-}
-    public void play() throws Exception {
+
+   /* public void play() throws Exception {
         String response;
-        char mark = 'S';
-        char opponentMark = 'P';
         try {
             response = in.readLine();
-            if (response.startsWith("WELCOME")) {
-                mark = response.charAt(8);
-                opponentMark = (mark == 'X' ? 'O' : 'X');
-                frame.setTitle("Tic Tac Toe - Player " + mark);
+            if (response.startsWith("<WAITING>")) {
+                this.setTitle("Waiting for player");
             }
             while (true) {
                 response = in.readLine();
-                if (response.startsWith("VALID_MOVE")) {
-                    messageLabel.setText("Valid move, please wait");
-                    currentSquare.setText(String.valueOf(mark));
-                    currentSquare.repaint();
-                } else if (response.startsWith("OPPONENT_MOVED")) {
+                if (response.startsWith("<CATEGORY>")) {
+                    this.removeAll();
+                    //kalla på categorypanel
+                    this.revalidate();
+                    this.repaint();
+                }
+                } else if (response.startsWith("")) {
                     int loc = Integer.parseInt(response.substring(15));
                     board[loc].setText(String.valueOf(opponentMark));
                     board[loc].repaint();
@@ -88,18 +87,18 @@ public class Client extends JFrame {
     }
 */
 
-  /*  public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {
         while (true) {
             String serverAddress = (args.length == 0) ? "localhost" : args[1];
-            Client client = new Client(serverAddress);
-            client.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            client.frame.setSize(240, 160);
-            client.frame.setVisible(true);
-            client.frame.setResizable(true);
-            client.play();
-            if (!client.wantsToPlayAgain()) {
+            Client cl = new Client(serverAddress);
+            /*this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.setSize(240, 160);
+            this.setVisible(true);
+            this.setResizable(true);
+            cl.play();
+            if (!this.wantsToPlayAgain()) {
                 break;
-            }
+            }*/
         }
     }
-}*/
+}
