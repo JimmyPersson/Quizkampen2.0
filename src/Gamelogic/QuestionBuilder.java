@@ -11,7 +11,7 @@ public class QuestionBuilder {
     String answer2;
     ArrayList arrayList = new ArrayList<String>();
 
-    public void QuestionReader(){
+    public void QuestionReader() {
         String line;
         try (BufferedReader br = new BufferedReader(new FileReader("/Server/Database.txt"))) {
             while ((line = br.readLine()) != null) {
@@ -20,15 +20,12 @@ public class QuestionBuilder {
                 answer1 = line.split("<ANSWER>")[2];
                 answer2 = line.split(",")[3];
 
+            }
 
-
-
-        }catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }catch (IOException e) {
-            e.printStackTrace();
-        }
-    } catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
+}

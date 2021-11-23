@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 
-public class Client {
+public class Client extends JFrame {
 
     private static int PORT = 8901;
     private Socket socket;
@@ -27,14 +27,16 @@ public class Client {
 
     public Client(String serverAddress) throws Exception {
         GamePanel test = new GamePanel();
+        this.setVisible(true);
+
         socket = new Socket(serverAddress, PORT);
         in = new BufferedReader(new InputStreamReader(
                 socket.getInputStream()));
         out = new PrintWriter(socket.getOutputStream(), true);
 
     }
-
-    /*public void play() throws Exception {
+}
+    public void play() throws Exception {
         String response;
         char mark = 'S';
         char opponentMark = 'P';
@@ -86,7 +88,7 @@ public class Client {
     }
 */
 
-    public static void main(String[] args) throws Exception {
+  /*  public static void main(String[] args) throws Exception {
         while (true) {
             String serverAddress = (args.length == 0) ? "localhost" : args[1];
             Client client = new Client(serverAddress);
@@ -100,4 +102,4 @@ public class Client {
             }
         }
     }
-}
+}*/

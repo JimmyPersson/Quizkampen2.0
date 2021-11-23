@@ -2,75 +2,96 @@ package GUI;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.PrintWriter;
+import java.util.*;
+import javax.swing.*;
 
-public class GamePanel {
-    public GamePanel() {
-        JFrame frame = new JFrame();
-        JPanel panel = new JPanel(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(5, 5, 5, 5);
-        gbc.anchor = GridBagConstraints.CENTER;
+public class GamePanel extends JPanel implements ActionListener {
 
-        frame.setVisible(true);
-        frame.pack();
-        frame.setSize(500, 600);
-        frame.add(panel);
-        frame.setTitle("Quizkampen");
-        frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    PrintWriter out;
+    String responseInput;
+    JLabel jl1 = new JLabel();
+    JButton jb1 = new JButton();
+    JButton jb2 = new JButton();
+    JButton jb3 = new JButton();
+    JButton jb4 = new JButton();
 
-        Color panelColor = new Color(30, 120, 200);
-        Color buttonColor = new Color(60, 80, 120);
+    private String Rubrik1;
+    private String Rubrik2;
+    private String Rubrik3;
+    private String Rubrik4;
+    private String Rubrik5;
+    private String köttfärs;
 
-        panel.setVisible(true);
-        panel.setBackground(panelColor);
 
-        JLabel jLabel = new JLabel(, SwingConstants.CENTER);
+    public GamePanel(String responseInput, PrintWriter out) {
+        this.out = out;
+        this.responseInput = responseInput;
+        getStringsFromRegex(responseInput);
 
-        jLabel.setOpaque(true);
-        jLabel.setBackground(Color.white);
-        jLabel.setPreferredSize(new Dimension(200, 150));
-        jLabel.setFont(new Font("Arial", Font.BOLD, 16));
+        setPreferredSize(new Dimension(400, 700));
+        this.setLayout(new GridLayout(6, 1));
 
-        gbc.gridx = 0;
-        gbc.weightx = 1;
-        gbc.gridy = 0;
-        gbc.weighty = 0;
-        gbc.gridwidth = 2;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        panel.add(jLabel, gbc);
 
-        gbc.gridx = 0;
-        gbc.weightx = 1;
-        gbc.gridy = 1;
-        gbc.weighty = 1;
-        gbc.gridwidth = 1;
-        gbc.fill = GridBagConstraints.BOTH;
-        panel.add(information.getButton(0), gbc);
+        jl1.setText(Rubrik1);
+        add(jl1);
 
-        gbc.gridx = 1;
-        gbc.weightx = 1;
-        gbc.gridy = 1;
-        gbc.weighty = 1;
-        gbc.gridwidth = 1;
-        gbc.fill = GridBagConstraints.BOTH;
-        panel.add(information.getButton(1), gbc);
+        jb1.setText(Rubrik2);
+        jb1.addActionListener(this);
+        add(jb1);
 
-        gbc.gridx = 0;
-        gbc.weightx = 1;
-        gbc.gridy = 2;
-        gbc.weighty = 1;
-        gbc.gridwidth = 1;
-        gbc.fill = GridBagConstraints.BOTH;
-        panel.add(information.getButton(2), gbc);
+        jb2.setText(Rubrik3);
+        jb2.addActionListener(this);
+        add(jb2);
 
-        gbc.gridx = 1;
-        gbc.weightx = 1;
-        gbc.gridy = 2;
-        gbc.weighty = 1;
-        gbc.gridwidth = 1;
-        gbc.fill = GridBagConstraints.BOTH;
-        panel.add(information.getButton(3), gbc);
+        jb3.setText(Rubrik4);
+        jb3.addActionListener(this);
+        add(jb3);
+
+        jb4.setText(Rubrik5);
+        jb4.addActionListener(this);
+        add(jb4);
 
     }
+
+
+    public void getStringsFromRegex(String responseInput) {
+        String[] temp = responseInput.split("--");
+        Rubrik1 = temp[0];
+        Rubrik2 = temp[1];
+        Rubrik3 = temp[2];
+        Rubrik4 = temp[3];
+        Rubrik5 = temp[4];
+        köttfärs = temp[4];
+    }
+
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+
+        if (e.getSource() == jb1) {
+            if (jb1.getText().equals(köttfärs)) {
+                out.println("Då är det rätt och vi skickar detta tillservern");
+            } else {
+                out.println("Då är deeeeeeet feeeeeel");
+            }
+
+
+            if (e.getSource() == jb2) {
+                if (jb2.getText().equals(köttfärs)) {
+                    out.println("Då är det rätt och vi skickar detta tillservern");
+                } else {
+                    out.println("Då är deeeeeeet feeeeeel");
+                }
+
+
+            }
+
+        }
+    }
+
 }
