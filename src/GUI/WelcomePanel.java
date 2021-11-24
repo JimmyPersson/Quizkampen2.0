@@ -8,35 +8,17 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-public class WelcomePanel extends JPanel implements Runnable {
-    Player player1;
-    Player player2;
-    String responseInput;
+public class WelcomePanel extends JPanel {
     JLabel jLabel = new JLabel("Welcome");
 
 
-    public WelcomePanel(Socket socket1, Socket socket2) throws IOException {
-
-        this.player1 = player1;
-        this.player2 = player2;
+    public WelcomePanel() {
+        this.setVisible(true);
         jLabel.setOpaque(true);
         setPreferredSize(new Dimension(400, 700));
         this.setLayout(new GridLayout(6, 1));
-        jLabel.setText("test");
+        jLabel.setText("Waiting for player..");
         add(jLabel);
-
-    }
-    public void run() {
-
-            try {
-                //GamePanel game = new GamePanel(responseInput, output);
-                System.out.println("test2");
-                //output.println("MESSAGE All players connected");
-                System.out.println("kött");
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
 
     }
 }

@@ -1,6 +1,7 @@
 package Client;
 
 import GUI.GamePanel;
+import GUI.WelcomePanel;
 import Server.Player;
 
 import java.awt.Color;
@@ -33,6 +34,7 @@ public class Client extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(500, 500);
         this.setResizable(true);
+        this.setTitle("Waiting for player..");
 
         socket = new Socket(serverAddress, PORT);
         in = new BufferedReader(new InputStreamReader(
@@ -47,9 +49,10 @@ public class Client extends JFrame {
        try {
            response = in.readLine();
            System.out.println(response);
-           if (response.startsWith("WELCOME")) {
-               this.setTitle("Welcome");
-
+           if (response.startsWith("GAMETIME")) {
+               setTitle("Welcome to Quizkämperz, choose your adväntjur!");
+               WelcomePanel welcome = new WelcomePanel();
+               add(welcome);
            }
 
            /* while (true) {
