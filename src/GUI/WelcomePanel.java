@@ -1,6 +1,5 @@
 package GUI;
 
-import Client.Client;
 import Server.Player;
 import Server.ServerLogic;
 
@@ -21,11 +20,11 @@ public class WelcomePanel extends JPanel implements ActionListener {
     JButton jButton1 = new JButton();
     JButton jButton2 = new JButton();
     String choice;
-    Client client;
+    PrintWriter out;
 
-    public WelcomePanel(Client client) throws IOException {
-        this.client = client;
+    public WelcomePanel(PrintWriter out) throws IOException {
         this.setVisible(true);
+        this.out = out;
         jLabel.setOpaque(true);
         setPreferredSize(new Dimension(400, 400));
         this.setLayout(new GridLayout(6, 1));
@@ -47,8 +46,7 @@ public class WelcomePanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
        System.out.println("KLICKAT 1!");
        choice = ("CAT"+jButton.getText());
-       client.setCategory(choice);
-        //out.println(choice);
+        out.println(choice);
 
     }
     public void actionPerformed2() {
@@ -57,5 +55,4 @@ public class WelcomePanel extends JPanel implements ActionListener {
     public void actionPerformed3() {
         System.out.println("KLICKAT 3!");
     }
-
 }

@@ -52,7 +52,7 @@ public class GameClass implements Runnable {
             if (responseInput.startsWith("CAT")){
                 result = responseInput;
                 output.println(result);
-                System.out.println(result);
+               // System.out.println(result);
             }
 
         } catch (Exception e) {

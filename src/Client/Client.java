@@ -29,13 +29,10 @@ public class Client extends JFrame {
     private Socket socket;
     private BufferedReader in;
     private PrintWriter out;
-    private Client cl;
-    private String category;
-    private WelcomePanel welcome;
+    private String response;
 
-    public Client(String serverAddress, String category) throws Exception {
+    public Client(String serverAddress) throws Exception {
         this.setVisible(true);
-        this.category = category;
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(500, 500);
         this.setResizable(true);
@@ -48,37 +45,30 @@ public class Client extends JFrame {
 
     }
 
-    public String getCategory() {
-        return category;
-    }
+   public void play() {
 
-    public void setCategory(String category) {
-        this.category = category;
-        sendCategory();
-    }
-
-    public void sendCategory() {
-        out.println(category);
-    }
-
-    public void play(WelcomePanel welcome) throws Exception {
-
-        String response;
-        try {
-            response = in.readLine();
-            System.out.println(response);
-            if (response.startsWith("GAMETIME")) {
-                setTitle("Welcome to Quizkampen, all players are connected!");
-                ServerLogic category = new ServerLogic();
-                System.out.println(category.CategoryGetter());
-                add(welcome);
-                welcome.revalidate();
-                welcome.repaint();
-            } else if (response.startsWith("WAITING")) {
-                setTitle("Waiting for opponent to play his/her round");
-            } else if (response.startsWith("CAT")) {
-                System.out.println("VINNER VI NU?!");
-            }
+       while (true){
+       try {
+           response = in.readLine();
+           System.out.println(response);
+           if (response.startsWith("GAMETIME")) {
+               setTitle("Welcome to Quizkampen, all players are connected!");
+               WelcomePanel welcome = new WelcomePanel(out);
+               ServerLogic category = new ServerLogic();
+               //System.out.println(category.CategoryGetter());
+               add(welcome);
+               revalidate();
+               repaint();
+           }
+           else if (response.startsWith("WAITING")) {
+               setTitle("Waiting for opponent to play his/her round");
+           }
+           else if (response.startsWith("CAT")){
+               getContentPane().removeAll();
+               GamePanel gamePanel = new GamePanel(response, out);
+               add(gamePanel);
+               revalidate();
+           }
 
 
            /* while (true) {
@@ -123,17 +113,16 @@ public class Client extends JFrame {
         return response == JOptionPane.YES_OPTION;
     }
 */
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+       } catch (IOException e) {
+           e.printStackTrace();
+       }}}
 
-    public static void main(String[] args) throws Exception {
-        String serverAddress = "localhost";
-        Client cl = new Client(serverAddress, null);
-        WelcomePanel welcome = new WelcomePanel(cl);
-        cl.play(welcome);
+           public static void main (String[]args) throws Exception {
+
+               String serverAddress = (args.length == 0) ? "localhost" : args[1];
+               Client cl = new Client(serverAddress);
+               cl.play();
 
 
-    }
-}
+           }
+       }
