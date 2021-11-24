@@ -38,43 +38,44 @@ public class GamePanel extends JPanel implements ActionListener {
 
         br = new BufferedReader(new FileReader("src/Server/Database.txt"));
         for (String line = br.readLine(); line != null; line = br.readLine()) {
-        category = responseInput.substring(3);
-        System.out.println(category);
-        for (String line = br.readLine(); line != null; line = br.readLine()) {
+            category = responseInput.substring(3);
+            System.out.println(category);
+            for (line = br.readLine(); line != null; line = br.readLine()) {
 
-        if (line.startsWith(category)) {
-            for (int i = 0; i < 20; i++) {
-                questionList.add(br.readLine());
+                if (line.startsWith(category)) {
+                    for (int i = 0; i < 20; i++) {
+                        questionList.add(br.readLine());
+                    }
+                }
             }
+
+            Question = questionList.get(0);
+            Answer1 = questionList.get(1);
+            Answer2 = questionList.get(2);
+            Answer3 = questionList.get(3);
+            Answer4 = questionList.get(4);
+            CorrectAnswer = Answer1;
+
+            jl1.setText(Question);
+            add(jl1);
+
+            jb1.setText(Answer1);
+            jb1.addActionListener(this);
+            add(jb1);
+
+            jb2.setText(Answer2);
+            jb2.addActionListener(this);
+            add(jb2);
+
+            jb3.setText(Answer3);
+            jb3.addActionListener(this);
+            add(jb3);
+
+            jb4.setText(Answer4);
+            jb4.addActionListener(this);
+            add(jb4);
+
         }
-        }
-
-        Question = questionList.get(0);
-        Answer1 = questionList.get(1);
-        Answer2 = questionList.get(2);
-        Answer3 = questionList.get(3);
-        Answer4 = questionList.get(4);
-        CorrectAnswer = Answer1;
-
-        jl1.setText(Question);
-        add(jl1);
-
-        jb1.setText(Answer1);
-        jb1.addActionListener(this);
-        add(jb1);
-
-        jb2.setText(Answer2);
-        jb2.addActionListener(this);
-        add(jb2);
-
-        jb3.setText(Answer3);
-        jb3.addActionListener(this);
-        add(jb3);
-
-        jb4.setText(Answer4);
-        jb4.addActionListener(this);
-        add(jb4);
-
     }
 
     @Override
