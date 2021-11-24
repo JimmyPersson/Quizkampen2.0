@@ -48,34 +48,56 @@ public class GamePanel extends JPanel implements ActionListener {
                     }
                 }
             }
-
-            Question = questionList.get(0);
-            Answer1 = questionList.get(1);
-            Answer2 = questionList.get(2);
-            Answer3 = questionList.get(3);
-            Answer4 = questionList.get(4);
-            CorrectAnswer = Answer1;
-
-            jl1.setText(Question);
-            add(jl1);
-
-            jb1.setText(Answer1);
-            jb1.addActionListener(this);
-            add(jb1);
-
-            jb2.setText(Answer2);
-            jb2.addActionListener(this);
-            add(jb2);
-
-            jb3.setText(Answer3);
-            jb3.addActionListener(this);
-            add(jb3);
-
-            jb4.setText(Answer4);
-            jb4.addActionListener(this);
-            add(jb4);
-
         }
+        Question = questionList.get(0);
+        Answer1 = questionList.get(1);
+        Answer2 = questionList.get(2);
+        Answer3 = questionList.get(3);
+        Answer4 = questionList.get(4);
+        CorrectAnswer = Answer1;
+
+        jl1.setText(Question);
+        add(jl1);
+
+        jb1.setText(Answer1);
+        jb1.addActionListener(this);
+        add(jb1);
+
+        jb2.setText(Answer2);
+        jb2.addActionListener(this);
+        add(jb2);
+
+        jb3.setText(Answer3);
+        jb3.addActionListener(this);
+        add(jb3);
+
+        jb4.setText(Answer4);
+        jb4.addActionListener(this);
+        add(jb4);
+    }
+
+    public void updateGamepanel(){
+
+        Question = questionList.get(5);
+        Answer1 = questionList.get(6);
+        Answer2 = questionList.get(7);
+        Answer3 = questionList.get(8);
+        Answer4 = questionList.get(9);
+        CorrectAnswer = Answer1;
+
+        jl1.setText(Question);
+
+        jb1.setText(Answer1);
+        jb1.addActionListener(this);
+
+        jb2.setText(Answer2);
+        jb2.addActionListener(this);
+
+        jb3.setText(Answer3);
+        jb3.addActionListener(this);
+
+        jb4.setText(Answer4);
+        jb4.addActionListener(this);
     }
 
     @Override
@@ -86,8 +108,10 @@ public class GamePanel extends JPanel implements ActionListener {
             if (jb1.getText().equals(CorrectAnswer)) {
                 System.out.println("Då är det rätt och vi skickar detta till servern");
                 score++;
+                updateGamepanel();
             } else {
                 System.out.println("Då är deeeeeeet feeeeeel");
+                updateGamepanel();
             }
         }
         if (e.getSource() == jb2) {
