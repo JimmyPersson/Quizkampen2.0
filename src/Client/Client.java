@@ -42,10 +42,11 @@ public class Client extends JFrame {
     }
 
    public void play() throws Exception {
+
        String response;
-       while (true){
        try {
            response = in.readLine();
+           System.out.println(response);
            if (response.startsWith("WELCOME")) {
                this.setTitle("Welcome");
 
@@ -96,7 +97,7 @@ public class Client extends JFrame {
        } catch (IOException e) {
            e.printStackTrace();
        }}
-   }
+
            public static void main (String[]args) throws Exception {
 
                String serverAddress = (args.length == 0) ? "localhost" : args[1];

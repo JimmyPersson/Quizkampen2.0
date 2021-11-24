@@ -3,6 +3,7 @@ package Server;
 import GUI.WelcomePanel;
 
 import java.net.ServerSocket;
+import java.net.Socket;
 
 public class Server {
 
@@ -12,17 +13,15 @@ public class Server {
         try {
             while (true) {
 
-              Player player1
-                        = new Player(listener.accept(), "1", null );
+              Socket socket1
+                        = listener.accept();
                 System.out.println("Player 1 anslöt");
-                Player player2
-                        = new Player(listener.accept(), "2", null );
+                Socket socket2
+                        = listener.accept();
                 System.out.println("Player 2 anslöt");
-                WelcomePanel wp = new WelcomePanel(player1.getSocket(),player1, player2);
+                GameClass game = new GameClass(socket1, socket2);
 
-                player1.setOpponent(player2);
-                player2.setOpponent(player1);
-                wp.run();
+                game.run();
             }
         } finally {
             listener.close();
