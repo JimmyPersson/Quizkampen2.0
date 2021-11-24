@@ -1,7 +1,5 @@
 package Server;
 
-import GUI.WelcomePanel;
-
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -19,7 +17,7 @@ public class Server {
                 Socket socket2
                         = listener.accept();
                 System.out.println("Player 2 anslöt");
-                GameClass game = new GameClass(socket1, socket2);
+                GameServer game = new GameServer(socket1, socket2);
 
                 game.run();
             }

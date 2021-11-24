@@ -55,7 +55,6 @@ public class Client extends JFrame {
                setTitle("Welcome to Quizkampen, all players are connected!");
                WelcomePanel welcome = new WelcomePanel(out);
                ServerLogic category = new ServerLogic();
-               //System.out.println(category.CategoryGetter());
                add(welcome);
                revalidate();
                repaint();

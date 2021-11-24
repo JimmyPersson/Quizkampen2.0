@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-public class GameClass implements Runnable {
+public class GameServer implements Runnable {
 
     Socket socket1;
     Socket socket2;
@@ -23,7 +23,7 @@ public class GameClass implements Runnable {
     JLabel jLabel = new JLabel("Welcome");
 
 
-    public GameClass(Socket socket1, Socket socket2) throws IOException {
+    public GameServer(Socket socket1, Socket socket2) throws IOException {
 
         this.socket1 = socket1;
         this.socket2 = socket2;
@@ -52,6 +52,8 @@ public class GameClass implements Runnable {
             if (responseInput.startsWith("CAT")){
                 result = responseInput;
                 output.println(result);
+                String resultClient1 = input.readLine();
+                output2.println();
                // System.out.println(result);
             }
 

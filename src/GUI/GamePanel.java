@@ -26,6 +26,8 @@ public class GamePanel extends JPanel implements ActionListener {
     private String Answer3;
     private String Answer4;
     private String CorrectAnswer;
+    private ArrayList<String> questionList = new ArrayList();
+    private int score = 0;
 
 
     public GamePanel(String responseInput, PrintWriter out) throws IOException {
@@ -35,20 +37,23 @@ public class GamePanel extends JPanel implements ActionListener {
         this.setLayout(new GridLayout(6, 1));
 
         br = new BufferedReader(new FileReader("C:\\Users\\jimmy\\IdeaProjects\\Quizkampen2.0\\src\\Server\\Database.txt"));
-        for (String line = br.readLine(); line != null; line = br.readLine()) {
         category = responseInput.substring(3);
-        if (br.readLine().startsWith(category)) {
-            System.out.println(category);
-            System.out.println(Question);
-            System.out.println(Answer1);
-            Question = (br.readLine());
-            Answer1 = (br.readLine());
-            Answer2 = (br.readLine());
-            Answer3 = (br.readLine());
-            Answer4 = (br.readLine());
-            CorrectAnswer = Answer1;
+        System.out.println(category);
+        for (String line = br.readLine(); line != null; line = br.readLine()) {
+
+        if (line.startsWith(category)) {
+            for (int i = 0; i < 20; i++) {
+                questionList.add(br.readLine());
+            }
         }
         }
+
+        Question = questionList.get(0);
+        Answer1 = questionList.get(1);
+        Answer2 = questionList.get(2);
+        Answer3 = questionList.get(3);
+        Answer4 = questionList.get(4);
+        CorrectAnswer = Answer1;
 
         jl1.setText(Question);
         add(jl1);
@@ -71,25 +76,6 @@ public class GamePanel extends JPanel implements ActionListener {
 
     }
 
-
-   /* public void setQuestion(String responseInput) throws IOException {
-        br = new BufferedReader(new FileReader("C:\\Users\\jimmy\\IdeaProjects\\Quizkampen2.0\\src\\Server\\Database.txt"));
-        category = responseInput.substring(3);
-        if (br.readLine().startsWith(category)){
-            System.out.println(category);
-            System.out.println(Question);
-            System.out.println(Answer1);
-            Question = (br.readLine());
-            Answer1 = (br.readLine());
-            Answer2 = (br.readLine());
-            Answer3 = (br.readLine());
-            Answer4 = (br.readLine());
-            CorrectAnswer = Answer1;
-        }
-    */
-
-
-
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -97,6 +83,7 @@ public class GamePanel extends JPanel implements ActionListener {
         if (e.getSource() == jb1) {
             if (jb1.getText().equals(CorrectAnswer)) {
                 System.out.println("Då är det rätt och vi skickar detta till servern");
+                score++;
             } else {
                 System.out.println("Då är deeeeeeet feeeeeel");
             }
@@ -104,6 +91,7 @@ public class GamePanel extends JPanel implements ActionListener {
         if (e.getSource() == jb2) {
             if (jb2.getText().equals(CorrectAnswer)) {
                 System.out.println("Då är det rätt och vi skickar detta tillservern");
+                score++;
             } else {
                     System.out.println("Då är deeeeeeet feeeeeel");
             }
@@ -111,6 +99,7 @@ public class GamePanel extends JPanel implements ActionListener {
         if (e.getSource() == jb3) {
             if (jb3.getText().equals(CorrectAnswer)) {
                 System.out.println("Då är det rätt och vi skickar detta tillservern");
+                score++;
             } else {
                 System.out.println("Då är deeeeeeet feeeeeel");
             }
@@ -118,6 +107,7 @@ public class GamePanel extends JPanel implements ActionListener {
         if (e.getSource() == jb4) {
             if (jb4.getText().equals(CorrectAnswer)) {
                 System.out.println("Då är det rätt och vi skickar detta tillservern");
+                score++;
             } else {
                 System.out.println("Då är deeeeeeet feeeeeel");
             }
