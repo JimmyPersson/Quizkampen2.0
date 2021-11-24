@@ -30,7 +30,7 @@ public class Client extends JFrame {
     private BufferedReader in;
     private PrintWriter out;
     private String response;
-    private int score;
+    private String chosenCat;
 
     public Client(String serverAddress) throws Exception {
         this.setVisible(true);
@@ -54,6 +54,7 @@ public class Client extends JFrame {
            System.out.println(response);
            if (response.startsWith("GAMETIME")) {
                setTitle("Welcome to Quizkampen, all players are connected!");
+               getContentPane().removeAll();
                WelcomePanel welcome = new WelcomePanel(out);
                ServerLogic category = new ServerLogic();
                add(welcome);
@@ -61,7 +62,9 @@ public class Client extends JFrame {
                repaint();
            }
            else if (response.startsWith("WAITING")) {
+               getContentPane().removeAll();
                setTitle("Waiting for opponent to play his/her round");
+               revalidate();
            }
            else if (response.startsWith("CAT")){
                getContentPane().removeAll();
@@ -70,7 +73,10 @@ public class Client extends JFrame {
                revalidate();
            }
            else if (response.startsWith("ROUND")) {
-               System.out.println("Test");
+               System.out.println(response);
+               GamePanel gamePanel = new GamePanel(out, response);
+               add(gamePanel);
+               revalidate();
            }
 
 

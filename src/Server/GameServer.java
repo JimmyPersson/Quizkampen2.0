@@ -15,14 +15,16 @@ public class GameServer implements Runnable {
     Socket socket1;
     Socket socket2;
     String responseInput;
+    String responseInput2;
     BufferedReader input;
     PrintWriter output;
     BufferedReader input2;
     PrintWriter output2;
     String result;
     JLabel jLabel = new JLabel("Welcome");
+    String chosenCat;
     int score1 = 0;
-    int score2;
+    int score2 = 0;
 
 
     public GameServer(Socket socket1, Socket socket2) throws IOException {
@@ -56,14 +58,33 @@ public class GameServer implements Runnable {
                     result = responseInput;
                     output.println(result);
                 } else if (responseInput.startsWith("ENDROUND")) {
-                    score1 = Integer.parseInt(responseInput.substring(8));
+                    chosenCat = responseInput.substring(8, responseInput.length() - 1);
+                    score1 = Integer.parseInt(responseInput.substring(responseInput.length() - 1));
                     System.out.println(score1);
                     System.out.println("test2");
-                    output2.println("ROUND");
+                    output.println("WAITING");
+                    output2.println("CAT" + chosenCat);
+                    break;
                 }
-            } catch (Exception e) {
+
+
+                } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-    }
-}
+        while (true) {
+            try {
+                responseInput = input2.readLine();
+                if (responseInput.startsWith("CAT")) {
+                    result = responseInput;
+                    output2.println(result);
+                } else if (responseInput.startsWith("ENDROUND")) {
+                    chosenCat = responseInput.substring(8, responseInput.length() - 1);
+                    score1 = Integer.parseInt(responseInput.substring(responseInput.length() - 1));
+                    System.out.println(score1);
+                    System.out.println("test2");
+                    output2.println("GAMETIME");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+        }}}}

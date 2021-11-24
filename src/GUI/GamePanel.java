@@ -20,6 +20,7 @@ public class GamePanel extends JPanel implements ActionListener {
     JButton jb3 = new JButton();
     JButton jb4 = new JButton();
 
+    private String chosenCat;
     private String Question;
     private String Answer1;
     private String Answer2;
@@ -34,6 +35,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
     public GamePanel(PrintWriter out, String responseInput) throws IOException {
         this.out = out;
+        this.chosenCat = responseInput.substring(3);
 
         setPreferredSize(new Dimension(400, 700));
         this.setLayout(new GridBagLayout());
@@ -143,8 +145,9 @@ public class GamePanel extends JPanel implements ActionListener {
             jb4.setText(Answer4);
         }
         else {
-            System.out.println(out);
-            out.println("ENDROUND"+score);
+            System.out.println("ENDROUND"+chosenCat+score);
+            out.println("ENDROUND"+chosenCat+score);
+
         }
     }
 

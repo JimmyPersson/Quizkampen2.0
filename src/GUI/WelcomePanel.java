@@ -30,21 +30,21 @@ public class WelcomePanel extends JPanel implements ActionListener {
         this.out = out;
 
         GridBagConstraints gbc = new GridBagConstraints();
-        jLabel.setPreferredSize(new Dimension(400,100));
+        jLabel.setPreferredSize(new Dimension(400, 100));
         jLabel.setFont(new Font("Arial", Font.BOLD, 16));
         jLabel.setOpaque(true);
 
         jButton.setFont(new Font("Arial", Font.BOLD, 16));
-        jButton.setText(""+categories.CategoryGetter().get(0));
+        jButton.setText("" + categories.CategoryGetter().get(0));
         jButton.addActionListener(this);
 
         jButton1.setFont(new Font("Arial", Font.BOLD, 16));
-        jButton1.setText(""+categories.CategoryGetter().get(1));
-        jButton1.addActionListener(l -> actionPerformed2());
+        jButton1.setText("" + categories.CategoryGetter().get(1));
+        jButton1.addActionListener(this);
 
         jButton2.setFont(new Font("Arial", Font.BOLD, 16));
-        jButton2.setText(""+categories.CategoryGetter().get(2));
-        jButton2.addActionListener(l -> actionPerformed3());
+        jButton2.setText("" + categories.CategoryGetter().get(2));
+        jButton2.addActionListener(this);
 
         gbc.gridx = 0;
         gbc.weightx = 1;
@@ -81,15 +81,16 @@ public class WelcomePanel extends JPanel implements ActionListener {
 
 
     public void actionPerformed(ActionEvent e) {
-       System.out.println("KLICKAT 1!");
-       choice = ("CAT"+jButton.getText());
-        out.println(choice);
-
-    }
-    public void actionPerformed2() {
-        System.out.println("KLICKAT 2!");
-    }
-    public void actionPerformed3() {
-        System.out.println("KLICKAT 3!");
+        if (e.getSource() == jButton) {
+            choice = ("CAT" + jButton.getText());
+            out.println(choice);
+        } else if (e.getSource() == jButton1) {
+            choice = ("CAT" + jButton1.getText());
+            out.println(choice);
+        } else if (e.getSource() == jButton2) {
+            choice = ("CAT" + jButton2.getText());
+            out.println(choice);
+        }
     }
 }
+
