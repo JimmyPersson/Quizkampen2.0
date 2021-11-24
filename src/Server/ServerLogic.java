@@ -11,8 +11,8 @@ public class ServerLogic {
     String responseInput;
 
     public ServerLogic() throws FileNotFoundException {
-        bufferedReader = new BufferedReader(new FileReader("C:\\Users\\jimmy\\IdeaProjects\\Quizkampen2.0\\src\\Server\\Database.txt"));
-        this.out = out;
+        bufferedReader = new BufferedReader(new FileReader("src/Server/Database.txt"));
+
     }
 
     public ArrayList CategoryGetter() throws IOException {

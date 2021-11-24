@@ -36,7 +36,8 @@ public class GamePanel extends JPanel implements ActionListener {
         setPreferredSize(new Dimension(400, 700));
         this.setLayout(new GridLayout(6, 1));
 
-        br = new BufferedReader(new FileReader("C:\\Users\\jimmy\\IdeaProjects\\Quizkampen2.0\\src\\Server\\Database.txt"));
+        br = new BufferedReader(new FileReader("src/Server/Database.txt"));
+        for (String line = br.readLine(); line != null; line = br.readLine()) {
         category = responseInput.substring(3);
         System.out.println(category);
         for (String line = br.readLine(); line != null; line = br.readLine()) {
