@@ -11,7 +11,7 @@ public class ServerLogic {
 
 
     public ServerLogic() throws FileNotFoundException {
-        bufferedReader = new BufferedReader(new FileReader("C:\\Users\\jimmy\\IdeaProjects\\Quizkampen2.0\\src\\Server\\Database.txt"));
+        bufferedReader = new BufferedReader(new FileReader("src/Server/Database.txt"));
 
     }
     public ArrayList CategoryGetter () throws IOException {
