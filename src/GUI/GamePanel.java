@@ -32,7 +32,7 @@ public class GamePanel extends JPanel implements ActionListener {
     private int loopLimit = 2;
 
 
-    public GamePanel(String responseInput, PrintWriter out) throws IOException {
+    public GamePanel(PrintWriter out, String responseInput) throws IOException {
         this.out = out;
 
         setPreferredSize(new Dimension(400, 700));
@@ -124,7 +124,6 @@ public class GamePanel extends JPanel implements ActionListener {
     }
 
     public void updateGamepanel() {
-        loop = getLoop();
 
         if (loop <= loopLimit) {
             Question = questionList.get(5 + 5 * loop);
@@ -132,6 +131,7 @@ public class GamePanel extends JPanel implements ActionListener {
             Answer2 = questionList.get(7 + 5 * loop);
             Answer3 = questionList.get(8 + 5 * loop);
             Answer4 = questionList.get(9 + 5 * loop);
+            System.out.println(loop);
             setLoop(loop + 1);
             CorrectAnswer = Answer1;
 
@@ -141,11 +141,10 @@ public class GamePanel extends JPanel implements ActionListener {
             jb2.setText(Answer2);
             jb3.setText(Answer3);
             jb4.setText(Answer4);
-
         }
-        if (loop == loopLimit) {
-            System.out.println("Köttfärs");
-            out.println("ROUND FINNISH" + score);
+        else {
+            System.out.println(out);
+            out.println("ENDROUND"+score);
         }
     }
 
@@ -162,42 +161,35 @@ public class GamePanel extends JPanel implements ActionListener {
 
         if (e.getSource() == jb1) {
             if (jb1.getText().equals(CorrectAnswer)) {
-                System.out.println("Då är det rätt och vi skickar detta till servern");
                 score++;
-                System.out.println(score);
                 updateGamepanel();
             } else {
-                System.out.println("Då är deeeeeeet feeeeeel");
                 updateGamepanel();
             }
         }
         if (e.getSource() == jb2) {
             if (jb2.getText().equals(CorrectAnswer)) {
-                System.out.println("Då är det rätt och vi skickar detta tillservern");
                 score++;
                 updateGamepanel();
             } else {
-                System.out.println("Då är deeeeeeet feeeeeel");
-                updateGamepanel();
+               updateGamepanel();
             }
         }
         if (e.getSource() == jb3) {
             if (jb3.getText().equals(CorrectAnswer)) {
-                System.out.println("Då är det rätt och vi skickar detta tillservern");
+
                 score++;
                 updateGamepanel();
             } else {
-                System.out.println("Då är deeeeeeet feeeeeel");
+
                 updateGamepanel();
             }
         }
         if (e.getSource() == jb4) {
             if (jb4.getText().equals(CorrectAnswer)) {
-                System.out.println("Då är det rätt och vi skickar detta tillservern");
                 score++;
                 updateGamepanel();
             } else {
-                System.out.println("Då är deeeeeeet feeeeeel");
                 updateGamepanel();
             }
         }

@@ -21,6 +21,8 @@ public class GameServer implements Runnable {
     PrintWriter output2;
     String result;
     JLabel jLabel = new JLabel("Welcome");
+    int score1 = 0;
+    int score2;
 
 
     public GameServer(Socket socket1, Socket socket2) throws IOException {
@@ -47,19 +49,21 @@ public class GameServer implements Runnable {
     }
     public void run() {
 
-        try {
-            responseInput = input.readLine();
-            if (responseInput.startsWith("CAT")){
-                result = responseInput;
-                output.println(result);
-                String resultClient1 = input.readLine();
-                output2.println();
-               // System.out.println(result);
+        while (true) {
+            try {
+                responseInput = input.readLine();
+                if (responseInput.startsWith("CAT")) {
+                    result = responseInput;
+                    output.println(result);
+                } else if (responseInput.startsWith("ENDROUND")) {
+                    score1 = Integer.parseInt(responseInput.substring(8));
+                    System.out.println(score1);
+                    System.out.println("test2");
+                    output2.println("ROUND");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-
-        } catch (Exception e) {
-            e.printStackTrace();
         }
-
     }
 }

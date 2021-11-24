@@ -65,13 +65,12 @@ public class Client extends JFrame {
            }
            else if (response.startsWith("CAT")){
                getContentPane().removeAll();
-               GamePanel gamePanel = new GamePanel(response, out);
+               GamePanel gamePanel = new GamePanel(out, response);
                add(gamePanel);
                revalidate();
            }
-           else if (response.startsWith("ROUND FINNISH")) {
-               score = Integer.parseInt(response.substring(13));
-               System.out.println(score);
+           else if (response.startsWith("ROUND")) {
+               System.out.println("Test");
            }
 
 
