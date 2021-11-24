@@ -82,7 +82,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
 
             if (e.getSource() == jb2) {
-                if (jb2.getText().equals(köttfärs)) {
+                if (jb2.getText().equals(CorrectAnswer)) {
                     out.println("Då är det rätt och vi skickar detta tillservern");
                 } else {
                     out.println("Då är deeeeeeet feeeeeel");

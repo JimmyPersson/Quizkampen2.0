@@ -3,6 +3,7 @@ package Client;
 import GUI.GamePanel;
 import GUI.WelcomePanel;
 import Server.Player;
+import Server.ServerLogic;
 
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -52,13 +53,20 @@ public class Client extends JFrame {
            if (response.startsWith("GAMETIME")) {
                setTitle("Welcome to Quizkampen, all players are connected!");
                WelcomePanel welcome = new WelcomePanel();
+               ServerLogic category = new ServerLogic();
+               System.out.println(category.CategoryGetter());
                add(welcome);
                revalidate();
                repaint();
+               System.out.println();
            }
            else if (response.startsWith("WAITING")) {
                setTitle("Waiting for opponent to play his/her round");
            }
+           else if (response.startsWith("CAT")){
+               System.out.println("VINNER VI NU?!");
+           }
+
 
            /* while (true) {
                 response = in.readLine();

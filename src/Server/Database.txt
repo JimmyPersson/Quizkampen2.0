@@ -1,6 +1,21 @@
-???CATEGORY Matematik
+???C
+Matematik
 Vad är 1+1?
 2
 3
 4
 5
+???C
+Kattmat
+Vad är Whiskas?
+4
+5
+6
+7
+???C
+Kallabalik
+Vad är 2?
+Inget
+3
+Apa
+18

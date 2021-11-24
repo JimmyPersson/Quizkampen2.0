@@ -19,6 +19,7 @@ public class GameClass implements Runnable {
     PrintWriter output;
     BufferedReader input2;
     PrintWriter output2;
+    String result;
     JLabel jLabel = new JLabel("Welcome");
 
 
@@ -47,10 +48,12 @@ public class GameClass implements Runnable {
     public void run() {
 
         try {
-    //      GamePanel game = new GamePanel(responseInput, output);
-            System.out.println("test2");
-            //output.println("MESSAGE All players connected");
-
+            responseInput = input.readLine();
+            if (responseInput.startsWith("CAT")){
+                result = responseInput;
+                output.println(result);
+                System.out.println(result);
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
