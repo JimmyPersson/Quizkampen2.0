@@ -37,6 +37,7 @@ public class GameClass implements Runnable {
             output2 = new PrintWriter(socket2.getOutputStream(), true);
 
             output.println("GAMETIME");
+            output2.println("WAITING");
 
         } catch (IOException e) {
             System.out.println("Player died: " + e);

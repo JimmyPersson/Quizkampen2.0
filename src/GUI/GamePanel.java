@@ -19,12 +19,12 @@ public class GamePanel extends JPanel implements ActionListener {
     JButton jb3 = new JButton();
     JButton jb4 = new JButton();
 
-    private String Rubrik1;
-    private String Rubrik2;
-    private String Rubrik3;
-    private String Rubrik4;
-    private String Rubrik5;
-    private String köttfärs;
+    private String Question;
+    private String Answer1;
+    private String Answer2;
+    private String Answer3;
+    private String Answer4;
+    private String CorrectAnswer;
 
 
     public GamePanel(String responseInput, PrintWriter out) {
@@ -36,22 +36,22 @@ public class GamePanel extends JPanel implements ActionListener {
         this.setLayout(new GridLayout(6, 1));
 
 
-        jl1.setText(Rubrik1);
+        jl1.setText(Question);
         add(jl1);
 
-        jb1.setText(Rubrik2);
+        jb1.setText(Answer1);
         jb1.addActionListener(this);
         add(jb1);
 
-        jb2.setText(Rubrik3);
+        jb2.setText(Answer2);
         jb2.addActionListener(this);
         add(jb2);
 
-        jb3.setText(Rubrik4);
+        jb3.setText(Answer3);
         jb3.addActionListener(this);
         add(jb3);
 
-        jb4.setText(Rubrik5);
+        jb4.setText(Answer4);
         jb4.addActionListener(this);
         add(jb4);
 
@@ -60,12 +60,12 @@ public class GamePanel extends JPanel implements ActionListener {
 
     public void getStringsFromRegex(String responseInput) {
         String[] temp = responseInput.split("--");
-        Rubrik1 = temp[0];
-        Rubrik2 = temp[1];
-        Rubrik3 = temp[2];
-        Rubrik4 = temp[3];
-        Rubrik5 = temp[4];
-        köttfärs = temp[4];
+        Question = temp[0];
+        Answer1 = temp[1];
+        Answer2 = temp[2];
+        Answer3 = temp[3];
+        Answer4 = temp[4];
+        CorrectAnswer = temp[4];
     }
 
 
@@ -74,7 +74,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
 
         if (e.getSource() == jb1) {
-            if (jb1.getText().equals(köttfärs)) {
+            if (jb1.getText().equals(CorrectAnswer)) {
                 out.println("Då är det rätt och vi skickar detta tillservern");
             } else {
                 out.println("Då är deeeeeeet feeeeeel");

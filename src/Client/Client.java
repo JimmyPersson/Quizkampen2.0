@@ -50,9 +50,14 @@ public class Client extends JFrame {
            response = in.readLine();
            System.out.println(response);
            if (response.startsWith("GAMETIME")) {
-               setTitle("Welcome to Quizkämperz, choose your adväntjur!");
+               setTitle("Welcome to Quizkampen, all players are connected!");
                WelcomePanel welcome = new WelcomePanel();
                add(welcome);
+               revalidate();
+               repaint();
+           }
+           else if (response.startsWith("WAITING")) {
+               setTitle("Waiting for opponent to play his/her round");
            }
 
            /* while (true) {
