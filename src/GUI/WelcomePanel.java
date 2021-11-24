@@ -15,7 +15,7 @@ import java.net.Socket;
 
 public class WelcomePanel extends JPanel implements ActionListener {
     ServerLogic categories = new ServerLogic();
-    JLabel jLabel = new JLabel();
+    JLabel jLabel = new JLabel("Welcome to Quizkampen! Choose a category:", SwingConstants.CENTER);
     JButton jButton = new JButton();
     JButton jButton1 = new JButton();
     JButton jButton2 = new JButton();
@@ -23,23 +23,60 @@ public class WelcomePanel extends JPanel implements ActionListener {
     PrintWriter out;
 
     public WelcomePanel(PrintWriter out) throws IOException {
+        this.setBackground(new Color(30, 120, 200));
         this.setVisible(true);
-        this.out = out;
-        jLabel.setOpaque(true);
+        this.setLayout(new GridBagLayout());
         setPreferredSize(new Dimension(400, 400));
-        this.setLayout(new GridLayout(6, 1));
-        jLabel.setText("Welcome to Quizkampen! Choose a category:");
+        this.out = out;
+
+        GridBagConstraints gbc = new GridBagConstraints();
+        jLabel.setPreferredSize(new Dimension(400,100));
+        jLabel.setFont(new Font("Arial", Font.BOLD, 16));
+        jLabel.setOpaque(true);
+
+        jButton.setFont(new Font("Arial", Font.BOLD, 16));
         jButton.setText(""+categories.CategoryGetter().get(0));
-        jButton1.setText(""+categories.CategoryGetter().get(1));
-        jButton2.setText(""+categories.CategoryGetter().get(2));
         jButton.addActionListener(this);
+
+        jButton1.setFont(new Font("Arial", Font.BOLD, 16));
+        jButton1.setText(""+categories.CategoryGetter().get(1));
         jButton1.addActionListener(l -> actionPerformed2());
+
+        jButton2.setFont(new Font("Arial", Font.BOLD, 16));
+        jButton2.setText(""+categories.CategoryGetter().get(2));
         jButton2.addActionListener(l -> actionPerformed3());
 
-        add(jLabel);
-        add(jButton);
-        add(jButton1);
-        add(jButton2);
+        gbc.gridx = 0;
+        gbc.weightx = 1;
+        gbc.gridy = 0;
+        gbc.weighty = 0;
+        gbc.gridwidth = 2;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        add(jLabel, gbc);
+
+        gbc.gridx = 0;
+        gbc.weightx = 1;
+        gbc.gridy = 1;
+        gbc.weighty = 1;
+        gbc.gridwidth = 1;
+        gbc.fill = GridBagConstraints.BOTH;
+        add(jButton, gbc);
+
+        gbc.gridx = 1;
+        gbc.weightx = 1;
+        gbc.gridy = 1;
+        gbc.weighty = 1;
+        gbc.gridwidth = 1;
+        gbc.fill = GridBagConstraints.BOTH;
+        add(jButton1, gbc);
+
+        gbc.gridx = 0;
+        gbc.weightx = 1;
+        gbc.gridy = 2;
+        gbc.weighty = 1;
+        gbc.gridwidth = 1;
+        gbc.fill = GridBagConstraints.BOTH;
+        add(jButton2, gbc);
     }
 
 
