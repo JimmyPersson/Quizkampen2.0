@@ -57,10 +57,5 @@ public class WelcomePanel extends JPanel implements ActionListener {
     public void actionPerformed3() {
         System.out.println("KLICKAT 3!");
     }
-    public String getChoice() {
-        return choice;
-    }
-    public void setChoice(String choice) {
-        this.choice = choice;
-    }
+
 }
