@@ -1,6 +1,7 @@
 package Client;
 
 import GUI.GamePanel;
+import GUI.ScorePanel;
 import GUI.WelcomePanel;
 import Server.Player;
 import Server.ServerLogic;
@@ -30,7 +31,9 @@ public class Client extends JFrame {
     private BufferedReader in;
     private PrintWriter out;
     private String response;
-    private String chosenCat;
+    private int score1;
+    private int score2;
+
 
     public Client(String serverAddress) throws Exception {
         this.setVisible(true);
@@ -69,13 +72,21 @@ public class Client extends JFrame {
            else if (response.startsWith("CAT")){
                getContentPane().removeAll();
                GamePanel gamePanel = new GamePanel(out, response);
+               setTitle("Time to play!");
                add(gamePanel);
                revalidate();
            }
            else if (response.startsWith("ROUND")) {
-               System.out.println(response);
                GamePanel gamePanel = new GamePanel(out, response);
                add(gamePanel);
+               revalidate();
+           }
+           else if (response.startsWith("SCORE")){
+               getContentPane().removeAll();
+               score1 = Integer.parseInt(response.substring(5,6));
+               score2 = Integer.parseInt(response.substring(6));
+               ScorePanel score = new ScorePanel(score1, score2);
+               add(score);
                revalidate();
            }
 

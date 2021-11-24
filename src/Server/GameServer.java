@@ -62,7 +62,7 @@ public class GameServer implements Runnable {
                     score1 = Integer.parseInt(responseInput.substring(responseInput.length() - 1));
                     System.out.println(score1);
                     System.out.println("test2");
-                    output.println("WAITING");
+                    output.println("SCORE"+score1+score2);
                     output2.println("CAT" + chosenCat);
                     break;
                 }
@@ -80,10 +80,10 @@ public class GameServer implements Runnable {
                     output2.println(result);
                 } else if (responseInput.startsWith("ENDROUND")) {
                     chosenCat = responseInput.substring(8, responseInput.length() - 1);
-                    score1 = Integer.parseInt(responseInput.substring(responseInput.length() - 1));
-                    System.out.println(score1);
+                    score2 = Integer.parseInt(responseInput.substring(responseInput.length() - 1));
+                    System.out.println(score2);
                     System.out.println("test2");
-                    output2.println("GAMETIME");
+                    output2.println("SCORE"+score1+score2);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
