@@ -88,16 +88,9 @@ public class GamePanel extends JPanel implements ActionListener {
         jl1.setText(Question);
 
         jb1.setText(Answer1);
-        jb1.addActionListener(this);
-
         jb2.setText(Answer2);
-        jb2.addActionListener(this);
-
         jb3.setText(Answer3);
-        jb3.addActionListener(this);
-
         jb4.setText(Answer4);
-        jb4.addActionListener(this);
     }
 
     @Override
