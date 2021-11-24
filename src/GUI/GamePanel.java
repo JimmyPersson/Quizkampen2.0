@@ -144,7 +144,8 @@ public class GamePanel extends JPanel implements ActionListener {
 
         }
         if (loop == loopLimit) {
-            out.println("ROUND FINNISH");
+            System.out.println("Köttfärs");
+            out.println("ROUND FINNISH" + score);
         }
     }
 

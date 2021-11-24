@@ -30,6 +30,7 @@ public class Client extends JFrame {
     private BufferedReader in;
     private PrintWriter out;
     private String response;
+    private int score;
 
     public Client(String serverAddress) throws Exception {
         this.setVisible(true);
@@ -67,6 +68,10 @@ public class Client extends JFrame {
                GamePanel gamePanel = new GamePanel(response, out);
                add(gamePanel);
                revalidate();
+           }
+           else if (response.startsWith("ROUND FINNISH")) {
+               score = Integer.parseInt(response.substring(13));
+               System.out.println(score);
            }
 
 
