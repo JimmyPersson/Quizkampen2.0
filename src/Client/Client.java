@@ -3,19 +3,15 @@ package Client;
 import GUI.GamePanel;
 import GUI.ScorePanel;
 import GUI.WelcomePanel;
-import Server.Player;
 import Server.ServerLogic;
 
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-import javax.imageio.stream.ImageInputStream;
 import javax.swing.*;
 
 

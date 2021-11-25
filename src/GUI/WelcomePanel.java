@@ -1,17 +1,13 @@
 package GUI;
 
-import Server.Player;
 import Server.ServerLogic;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.io.PrintWriter;
-import java.net.Socket;
 
 public class WelcomePanel extends JPanel implements ActionListener {
     ServerLogic categories = new ServerLogic(null);
