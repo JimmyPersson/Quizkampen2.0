@@ -26,12 +26,12 @@ public class Client extends JFrame {
     private BufferedReader in;
     private PrintWriter out;
     private String response;
-    private int score1;
-    private int score2;
+    private String score;
     private String playedCat = null;
 
 
     public Client(String serverAddress) throws Exception {
+        this.score = "";
         JLabel jLabel = new JLabel("Wating for player..", SwingConstants.CENTER);
         jLabel.setBackground(new Color(30, 120, 200));
         this.setBackground(new Color(30, 120, 200));
@@ -58,7 +58,7 @@ public class Client extends JFrame {
        while (true){
        try {
            response = in.readLine();
-           System.out.println(response);
+
            if (response.startsWith("GAMETIME")) {
                setTitle("Welcome to Quizkampen, all players are connected!");
                getContentPane().removeAll();
@@ -82,10 +82,9 @@ public class Client extends JFrame {
            }
            else if (response.startsWith("SCORE")){
                getContentPane().removeAll();
-               score1 = Integer.parseInt(response.substring(5,6));
-               score2 = Integer.parseInt(response.substring(6));
-               ScorePanel score = new ScorePanel(out, score1, score2);
-               add(score);
+               score = (response.substring(5));
+               ScorePanel scorepan = new ScorePanel(out, score);
+               add(scorepan);
                revalidate();
            }
            else if (response.startsWith("NEXT")) {

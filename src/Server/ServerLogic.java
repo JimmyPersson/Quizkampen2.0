@@ -19,7 +19,7 @@ public class ServerLogic {
         for (String line = bufferedReader.readLine(); line != null; line = bufferedReader.readLine()) {
             if (line.startsWith("???C")) {
                categoryList.add(bufferedReader.readLine());
-                System.out.println(categoryList);
+
             }
         }
         return categoryList;

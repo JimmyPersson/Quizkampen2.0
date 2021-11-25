@@ -134,7 +134,7 @@ public class GamePanel extends JPanel implements ActionListener {
             Answer2 = questionList.get(7 + 5 * loop);
             Answer3 = questionList.get(8 + 5 * loop);
             Answer4 = questionList.get(9 + 5 * loop);
-            System.out.println(loop);
+
             setLoop(loop + 1);
             CorrectAnswer = Answer1;
 
@@ -146,7 +146,6 @@ public class GamePanel extends JPanel implements ActionListener {
             jb4.setText(Answer4);
         }
         else {
-            System.out.println("ENDROUND"+chosenCat+score);
             out.println("ENDROUND"+chosenCat+score);
         }
     }

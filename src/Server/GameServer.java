@@ -9,9 +9,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.Properties;
 
 public class GameServer extends Thread {
-
+    Properties prop = new Properties();
     Socket socket1;
     Socket socket2;
     String responseInput;
@@ -24,8 +26,9 @@ public class GameServer extends Thread {
     JLabel jLabel = new JLabel("Welcome");
     String chosenCat;
     String playedCat;
-    int score1 = 0;
-    int score2 = 0;
+    String score = "";
+
+
 
 
     public GameServer(Socket socket1, Socket socket2) throws IOException {
@@ -64,8 +67,9 @@ public class GameServer extends Thread {
                         output.println(result);
                     } else if (responseInput.startsWith("ENDROUND")) {
                         chosenCat = responseInput.substring(8, responseInput.length() - 1);
-                        score1 = Integer.parseInt(responseInput.substring(responseInput.length() - 1));
-                        output.println("SCORE" + score1 + score2);
+                        score = score + (responseInput.substring(responseInput.length() - 1));
+                        System.out.println("Score p1: "+ score);
+                        output.println("SCORE" + score);
                         output2.println("CAT" + chosenCat);
                         output.println("WAITING");
                         break;
@@ -84,8 +88,9 @@ public class GameServer extends Thread {
                         System.out.println("Test26262");
                     } else if (responseInput2.startsWith("ENDROUND")) {
                         playedCat = chosenCat;
-                        score2 = Integer.parseInt(responseInput2.substring(responseInput2.length() - 1));
-                        output2.println("SCORE" + score1 + score2);
+                        score = score + (responseInput2.substring(responseInput2.length() - 1));
+                        System.out.println("Score p2: "+ score);
+                        output2.println("SCORE" + score);
                         output.println("NEXT");
                         output2.println("WAITING");
                         continue test;
