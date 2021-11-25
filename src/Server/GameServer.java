@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-public class GameServer implements Runnable {
+public class GameServer extends Thread {
 
     Socket socket1;
     Socket socket2;

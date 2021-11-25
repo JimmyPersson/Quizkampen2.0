@@ -19,7 +19,7 @@ public class Server {
                 System.out.println("Player 2 anslöt");
                 GameServer game = new GameServer(socket1, socket2);
 
-                game.run();
+                game.start();
             }
         } finally {
             listener.close();
