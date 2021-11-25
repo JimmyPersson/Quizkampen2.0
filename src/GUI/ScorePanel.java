@@ -65,7 +65,7 @@ public class ScorePanel extends JPanel {
                 System.out.println("Score lenght "+ score.length());
                 scoreR1P2 = Integer.parseInt(score.substring(1));
                 scoreR1P1 = Integer.parseInt(score.substring(0));
-                scoreP1 =
+                scoreP1.setText(""+scoreR1P1);
                 scoreP2.setText(""+scoreR1P2);
                 System.out.println(scoreR1P2);
             }
@@ -99,6 +99,7 @@ public class ScorePanel extends JPanel {
                 scoreR4P2 = Integer.parseInt(score.substring(7));
                 System.out.println(scoreR1P2);
             }
+
 
 
         total1 = scoreR1P1 + scoreR1P1 + scoreR3P1;

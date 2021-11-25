@@ -41,7 +41,7 @@ public class Client extends JFrame {
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(500, 500);
+        this.setSize(650, 650);
         this.setResizable(true);
         this.setTitle("Waiting for player..");
 
