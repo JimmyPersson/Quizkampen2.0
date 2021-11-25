@@ -32,7 +32,7 @@ public class WelcomePanel extends JPanel implements ActionListener {
         GridBagConstraints gbc = new GridBagConstraints();
         jLabel.setPreferredSize(new Dimension(400, 100));
         jLabel.setFont(new Font("Arial", Font.BOLD, 16));
-        jLabel.setOpaque(true);
+        jLabel.setForeground(Color.white);
 
         jButton.setFont(new Font("Arial", Font.BOLD, 16));
         jButton.setText("" + categories.CategoryGetter().get(0));
