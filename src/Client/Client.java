@@ -100,6 +100,7 @@ public class Client extends JFrame {
                getContentPane().removeAll();
                score = (response.substring(10));
                ScorePanel scorepan = new ScorePanel(out, score);
+               setLayout(new GridLayout(1,1));
                add(scorepan);
                revalidate();
                Thread.sleep(2000);

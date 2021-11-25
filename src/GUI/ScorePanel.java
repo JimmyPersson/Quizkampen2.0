@@ -32,20 +32,20 @@ public class ScorePanel extends JPanel {
 
     public ScorePanel(PrintWriter out, String score) {
         this.score = score;
-        setLayout(new GridBagLayout());
+        setLayout(new GridLayout());
         GridBagConstraints gbc = new GridBagConstraints();
 
-        scoreP1.setFont(new Font("Arial", Font.BOLD, 48));
+        scoreP1.setFont(new Font("Arial", Font.BOLD, 30));
         scoreP1.setForeground(Color.white);
-        scoreP2.setFont(new Font("Arial", Font.BOLD, 48));
+        scoreP2.setFont(new Font("Arial", Font.BOLD, 30));
         scoreP2.setForeground(Color.white);
-        scoreP12.setFont(new Font("Arial", Font.BOLD, 48));
+        scoreP12.setFont(new Font("Arial", Font.BOLD, 30));
         scoreP12.setForeground(Color.white);
-        scoreP22.setFont(new Font("Arial", Font.BOLD, 48));
+        scoreP22.setFont(new Font("Arial", Font.BOLD, 30));
         scoreP22.setForeground(Color.white);
-        scoreP13.setFont(new Font("Arial", Font.BOLD, 48));
+        scoreP13.setFont(new Font("Arial", Font.BOLD, 30));
         scoreP13.setForeground(Color.white);
-        scoreP23.setFont(new Font("Arial", Font.BOLD, 48));
+        scoreP23.setFont(new Font("Arial", Font.BOLD, 30));
         scoreP23.setForeground(Color.white);
 
         player1.setFont(new Font("Arial", Font.BOLD, 48));
@@ -59,7 +59,7 @@ public class ScorePanel extends JPanel {
                 System.out.println("Score lenght1 "+ score.length());
                 scoreR1P1 = Integer.parseInt(score);
                 scoreP1.setText(""+scoreR1P1);
-                System.out.println(scoreR1P1);
+
             }
             else if (score.length() == 2){
                 System.out.println("Score lenght "+ score.length());
@@ -67,37 +67,91 @@ public class ScorePanel extends JPanel {
                 scoreR1P1 = Integer.parseInt(score.substring(0,1));
                 scoreP1.setText(""+scoreR1P1);
                 scoreP2.setText(""+scoreR1P2);
-                System.out.println(scoreR1P2);
+
             }
             else if (score.length() == 3){
                 System.out.println("Score lenght "+ score.length());
                 scoreR2P1 = Integer.parseInt(score.substring(2));
-                System.out.println(scoreR1P2);
+                scoreR1P2 = Integer.parseInt(score.substring(1,2));
+                scoreR1P1 = Integer.parseInt(score.substring(0,1));
+                scoreP1.setText(""+scoreR1P1);
+                scoreP2.setText(""+scoreR1P2);
+                scoreP12.setText(""+scoreR2P1);
             }
             else if (score.length() == 4){
                 System.out.println("Score lenght "+ score.length());
                 scoreR2P2 = Integer.parseInt(score.substring(3));
-                System.out.println(scoreR1P2);
+                scoreR2P1 = Integer.parseInt(score.substring(2,3));
+                scoreR1P2 = Integer.parseInt(score.substring(1,2));
+                scoreR1P1 = Integer.parseInt(score.substring(0,1));
+                scoreP1.setText(""+scoreR1P1);
+                scoreP2.setText(""+scoreR1P2);
+                scoreP12.setText(""+scoreR2P1);
+                scoreP22.setText(""+scoreR2P2);
             }
             else if (score.length() == 5){
                 System.out.println("Score lenght "+ score.length());
                 scoreR3P1 = Integer.parseInt(score.substring(4));
-                System.out.println(scoreR1P2);
+                scoreR2P2 = Integer.parseInt(score.substring(3,4));
+                scoreR2P1 = Integer.parseInt(score.substring(2,3));
+                scoreR1P2 = Integer.parseInt(score.substring(1,2));
+                scoreR1P1 = Integer.parseInt(score.substring(0,1));
+                scoreP1.setText(""+scoreR1P1);
+                scoreP2.setText(""+scoreR1P2);
+                scoreP12.setText(""+scoreR2P1);
+                scoreP22.setText(""+scoreR2P2);
+                scoreP13.setText(""+scoreR3P1);
             }
             else if (score.length() == 6){
                 System.out.println("Score lenght "+ score.length());
                 scoreR3P2 = Integer.parseInt(score.substring(5));
-                System.out.println(scoreR1P2);
+                scoreR3P1 = Integer.parseInt(score.substring(4,5));
+                scoreR2P2 = Integer.parseInt(score.substring(3,4));
+                scoreR2P1 = Integer.parseInt(score.substring(2,3));
+                scoreR1P2 = Integer.parseInt(score.substring(1,2));
+                scoreR1P1 = Integer.parseInt(score.substring(0,1));
+                scoreP1.setText(""+scoreR1P1);
+                scoreP2.setText(""+scoreR1P2);
+                scoreP12.setText(""+scoreR2P1);
+                scoreP22.setText(""+scoreR2P2);
+                scoreP13.setText(""+scoreR3P1);
+                scoreP23.setText(""+scoreR3P2);
             }
             else if (score.length() == 7){
                 System.out.println("Score lenght "+ score.length());
                 scoreR4P1 = Integer.parseInt(score.substring(6));
-                System.out.println(scoreR1P2);
+                scoreR3P2 = Integer.parseInt(score.substring(5,6));
+                scoreR3P1 = Integer.parseInt(score.substring(4,5));
+                scoreR2P2 = Integer.parseInt(score.substring(3,4));
+                scoreR2P1 = Integer.parseInt(score.substring(2,3));
+                scoreR1P2 = Integer.parseInt(score.substring(1,2));
+                scoreR1P1 = Integer.parseInt(score.substring(0,1));
+                scoreP1.setText(""+scoreR1P1);
+                scoreP2.setText(""+scoreR1P2);
+                scoreP12.setText(""+scoreR2P1);
+                scoreP22.setText(""+scoreR2P2);
+                scoreP13.setText(""+scoreR3P1);
+                scoreP23.setText(""+scoreR3P2);
+                scoreP14.setText(""+scoreR4P1);
             }
             else if (score.length() == 8){
                 System.out.println("Score lenght "+ score.length());
                 scoreR4P2 = Integer.parseInt(score.substring(7));
-                System.out.println(scoreR1P2);
+                scoreR4P1 = Integer.parseInt(score.substring(6,7));
+                scoreR3P2 = Integer.parseInt(score.substring(5,6));
+                scoreR3P1 = Integer.parseInt(score.substring(4,5));
+                scoreR2P2 = Integer.parseInt(score.substring(3,4));
+                scoreR2P1 = Integer.parseInt(score.substring(2,3));
+                scoreR1P2 = Integer.parseInt(score.substring(1,2));
+                scoreR1P1 = Integer.parseInt(score.substring(0,1));
+                scoreP1.setText(""+scoreR1P1);
+                scoreP2.setText(""+scoreR1P2);
+                scoreP12.setText(""+scoreR2P1);
+                scoreP22.setText(""+scoreR2P2);
+                scoreP13.setText(""+scoreR3P1);
+                scoreP23.setText(""+scoreR3P2);
+                scoreP14.setText(""+scoreR4P1);
+                scoreP24.setText(""+scoreR4P2);
             }
 
 
@@ -172,7 +226,5 @@ public class ScorePanel extends JPanel {
         gbc.gridwidth = 1;
         gbc.fill = GridBagConstraints.BOTH;
         add(scoreP23, gbc);
-
-
     }
 }
