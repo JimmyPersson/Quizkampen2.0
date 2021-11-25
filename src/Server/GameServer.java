@@ -32,7 +32,6 @@ public class GameServer extends Thread {
 
         this.socket1 = socket1;
         this.socket2 = socket2;
-        System.out.println(socket1);
 
         try {
             input = new BufferedReader(
@@ -46,54 +45,56 @@ public class GameServer extends Thread {
             output2.println("WAITING");
 
         } catch (IOException e) {
-            System.out.println("Player died: " + e);
+            System.out.println("Something went wrong!" + e);
         }
 
     }
 
     public void run() {
+
         test:
         while (true) {
-            try {
-                responseInput = input.readLine();
 
-                if (responseInput.startsWith("CAT")) {
-                    result = responseInput;
-                    output.println(result);
-                } else if (responseInput.startsWith("ENDROUND")) {
-                    chosenCat = responseInput.substring(8, responseInput.length() - 1);
-                    score1 = Integer.parseInt(responseInput.substring(responseInput.length() - 1));
-                    System.out.println(score1);
-                    System.out.println("test1");
-                    output.println("SCORE" + score1 + score2);
-                    output2.println("CAT" + chosenCat);
-                    output.println("WAITING");
+            while (true) {
+                try {
+                    responseInput = input.readLine();
+
+                    if (responseInput.startsWith("CAT")) {
+                        result = responseInput;
+                        output.println(result);
+                    } else if (responseInput.startsWith("ENDROUND")) {
+                        chosenCat = responseInput.substring(8, responseInput.length() - 1);
+                        score1 = Integer.parseInt(responseInput.substring(responseInput.length() - 1));
+                        output.println("SCORE" + score1 + score2);
+                        output2.println("CAT" + chosenCat);
+                        output.println("WAITING");
+                        break;
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            while (true) {
+                try {
                     responseInput2 = input2.readLine();
 
-                } else if (responseInput2.startsWith("CAT")) {
-                    output2.println(responseInput2);
-                    System.out.println("Test26262");
-                } else if (responseInput2.startsWith("ENDROUND")) {
-                    playedCat = chosenCat;
-                    score2 = Integer.parseInt(responseInput2.substring(responseInput2.length() - 1));
-                    System.out.println(score2);
-                    System.out.println("test2");
-                    output2.println("SCORE" + score1 + score2);
-                    System.out.println(score1 + score2);
-                    output.println("NEXT");
-                    output2.println("WAITING");
-                    responseInput2 = "Rest";
 
-                  /*  responseInput2 = null;
-                    responseInput = input.readLine(); */
-                } else {
-                    continue test;
+                    if (responseInput2.startsWith("CAT")) {
+                        output2.println(responseInput2);
+                        System.out.println("Test26262");
+                    } else if (responseInput2.startsWith("ENDROUND")) {
+                        playedCat = chosenCat;
+                        score2 = Integer.parseInt(responseInput2.substring(responseInput2.length() - 1));
+                        output2.println("SCORE" + score1 + score2);
+                        output.println("NEXT");
+                        output2.println("WAITING");
+                        continue test;
+                    }
+
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
             }
-
         }
-
     }
 }
