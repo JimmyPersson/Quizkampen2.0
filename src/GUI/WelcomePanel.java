@@ -1,12 +1,19 @@
 package GUI;
 
+//import Server.Player;
+
 import Server.ServerLogic;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.net.Socket;
+import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
 
 
 public class WelcomePanel extends JPanel implements ActionListener {
@@ -26,21 +33,20 @@ public class WelcomePanel extends JPanel implements ActionListener {
         this.out = out;
 
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(5, 5, 5, 5);
         jLabel.setPreferredSize(new Dimension(400, 100));
         jLabel.setFont(new Font("Arial", Font.BOLD, 16));
         jLabel.setForeground(Color.white);
 
         jButton.setFont(new Font("Arial", Font.BOLD, 16));
-        jButton.setText("" + categories.CategoryGetter().get(0));
+        jButton.setText("" + categories.CategoryGetter().get(randomCategories().get(0)));
         jButton.addActionListener(this);
 
         jButton1.setFont(new Font("Arial", Font.BOLD, 16));
-        jButton1.setText("" + categories.CategoryGetter().get(1));
+        jButton1.setText("" + categories.CategoryGetter().get(randomCategories().get(1)));
         jButton1.addActionListener(this);
 
         jButton2.setFont(new Font("Arial", Font.BOLD, 16));
-        jButton2.setText("" + categories.CategoryGetter().get(2));
+        jButton2.setText("" + categories.CategoryGetter().get(randomCategories().get(2)));
         jButton2.addActionListener(this);
 
         gbc.gridx = 0;
@@ -51,7 +57,7 @@ public class WelcomePanel extends JPanel implements ActionListener {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         add(jLabel, gbc);
 
-        gbc.gridx = 1;
+        gbc.gridx = 0;
         gbc.weightx = 1;
         gbc.gridy = 1;
         gbc.weighty = 1;
@@ -61,21 +67,31 @@ public class WelcomePanel extends JPanel implements ActionListener {
 
         gbc.gridx = 1;
         gbc.weightx = 1;
-        gbc.gridy = 2;
+        gbc.gridy = 1;
         gbc.weighty = 1;
         gbc.gridwidth = 1;
         gbc.fill = GridBagConstraints.BOTH;
         add(jButton1, gbc);
 
-        gbc.gridx = 1;
+        gbc.gridx = 0;
         gbc.weightx = 1;
-        gbc.gridy = 3;
+        gbc.gridy = 2;
         gbc.weighty = 1;
         gbc.gridwidth = 1;
         gbc.fill = GridBagConstraints.BOTH;
         add(jButton2, gbc);
     }
 
+    public ArrayList<Integer> randomCategories() throws IOException {
+        ArrayList<Integer> randomList = new ArrayList<>();
+        int random1 = ThreadLocalRandom.current().nextInt(0, categories.CategoryGetter().size());
+        int random2 = ThreadLocalRandom.current().nextInt(0, categories.CategoryGetter().size());
+        int random3 = ThreadLocalRandom.current().nextInt(0, categories.CategoryGetter().size());
+        randomList.add(random1);
+        randomList.add(random2);
+        randomList.add(random3);
+        return randomList;
+    }
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == jButton) {
