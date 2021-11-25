@@ -27,9 +27,7 @@ public class GameServer extends Thread {
     String chosenCat;
     String playedCat;
     String score = "";
-
-
-
+    int roundLimit = 0;
 
     public GameServer(Socket socket1, Socket socket2) throws IOException {
 
