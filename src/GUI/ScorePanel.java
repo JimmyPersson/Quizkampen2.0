@@ -64,7 +64,7 @@ public class ScorePanel extends JPanel {
             else if (score.length() == 2){
                 System.out.println("Score lenght "+ score.length());
                 scoreR1P2 = Integer.parseInt(score.substring(1));
-                scoreR1P1 = Integer.parseInt(score.substring(0));
+                scoreR1P1 = Integer.parseInt(score.substring(0,1));
                 scoreP1.setText(""+scoreR1P1);
                 scoreP2.setText(""+scoreR1P2);
                 System.out.println(scoreR1P2);
