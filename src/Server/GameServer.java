@@ -75,7 +75,6 @@ public class GameServer extends Thread {
                     output2.println(responseInput2);
                     System.out.println("Test26262");
                 } else if (responseInput2.startsWith("ENDROUND")) {
-                    System.out.println("Hej hej");
                     playedCat = chosenCat;
                     score2 = Integer.parseInt(responseInput2.substring(responseInput2.length() - 1));
                     System.out.println(score2);
