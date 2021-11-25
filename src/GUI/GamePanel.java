@@ -100,9 +100,9 @@ public class GamePanel extends JPanel implements ActionListener {
             }
             @Override
             public void mousePressed(MouseEvent e) {
-                jb1.setOpaque(true);
-                jb1.setBorderPainted(false);
+                jb1.setContentAreaFilled(false);
                 jb1.setBackground(Color.GREEN);
+                jb1.setOpaque(true);
             }
             @Override
             public void mouseReleased(MouseEvent e) {
@@ -134,9 +134,9 @@ public class GamePanel extends JPanel implements ActionListener {
             }
             @Override
             public void mousePressed(MouseEvent e) {
-                jb2.setOpaque(true);
-                jb2.setBorderPainted(false);
+                jb2.setContentAreaFilled(false);
                 jb2.setBackground(Color.RED);
+                jb2.setOpaque(true);
             }
             @Override
             public void mouseReleased(MouseEvent e) {
@@ -167,9 +167,9 @@ public class GamePanel extends JPanel implements ActionListener {
             }
             @Override
             public void mousePressed(MouseEvent e) {
-                jb3.setOpaque(true);
-                jb3.setBorderPainted(false);
+                jb3.setContentAreaFilled(false);
                 jb3.setBackground(Color.RED);
+                jb3.setOpaque(true);
             }
             @Override
             public void mouseReleased(MouseEvent e) {
@@ -200,9 +200,9 @@ public class GamePanel extends JPanel implements ActionListener {
             }
             @Override
             public void mousePressed(MouseEvent e) {
-                jb4.setOpaque(true);
-                jb4.setBorderPainted(false);
+                jb4.setContentAreaFilled(false);
                 jb4.setBackground(Color.RED);
+                jb4.setOpaque(true);
             }
             @Override
             public void mouseReleased(MouseEvent e) {
