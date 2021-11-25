@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+
 public class WelcomePanel extends JPanel implements ActionListener {
     ServerLogic categories = new ServerLogic(null);
     JLabel jLabel = new JLabel("Welcome to Quizkampen! Choose a category:", SwingConstants.CENTER);
