@@ -6,8 +6,7 @@ import GUI.WelcomePanel;
 import Server.Player;
 import Server.ServerLogic;
 
-import java.awt.Color;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
@@ -17,11 +16,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 import javax.imageio.stream.ImageInputStream;
-import javax.swing.Icon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 
 public class Client extends JFrame {
@@ -37,12 +32,19 @@ public class Client extends JFrame {
 
 
     public Client(String serverAddress) throws Exception {
+        JLabel jLabel = new JLabel("Wating for player..", SwingConstants.CENTER);
+        jLabel.setBackground(new Color(30, 120, 200));
+        this.setBackground(new Color(30, 120, 200));
+        jLabel.setOpaque(true);
+        this.add(jLabel);
+        jLabel.setFont(new Font("Arial", Font.BOLD, 48));
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(500, 500);
         this.setResizable(true);
         this.setTitle("Waiting for player..");
+
 
         socket = new Socket(serverAddress, PORT);
         in = new BufferedReader(new InputStreamReader(
