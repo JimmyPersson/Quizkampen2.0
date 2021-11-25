@@ -1,7 +1,7 @@
 ???C
 Matematik
-Vad är 1+1?
-2
+Vad är 7 * 10?
+70
 3
 4
 5
@@ -15,8 +15,8 @@ Vad är 5+5?
 3
 5
 6
-Vad är 10+10?
-20
+Vad är 10*10?
+100
 30
 40
 50
@@ -74,12 +74,12 @@ Volga
 Donau
 Rhen
 Elbe
-Vad heter Kanadas huvudstad?",
+Vad heter Kanadas huvudstad?,
 Ottawa
 Washington
 Montreal
 Ontario
-Var hittar man tornet Big Ben?
+Vart hittar man tornet "Big Ben"?
 London
 Paris
 Köpenhamn
@@ -120,7 +120,7 @@ Spanien
 Tyskland
 Grekland
 England
-Vilket år vann Andre´ Myhrer OS-guld i Slalom?
+Vilket år vann André Myhrer OS-guld i Slalom?
 2018
 2008
 2019
@@ -183,7 +183,7 @@ Hudsjukdom
 Hjärtfel
 <>
 ???C
-Litteratur
+Literatur
 Från vilket land kommer författaren Camilla Läckberg?
 Sverige
 Island
@@ -222,7 +222,7 @@ Fiat
 Renault
 Siemens
 Volkswagen
-När behöver man byta  till vinterdäck i Sverige?
+När behöver man senast byta till vinterdäck i Sverige?
 1 december
 15 november
 31 oktober
@@ -230,7 +230,7 @@ När behöver man byta  till vinterdäck i Sverige?
 <>
 ???C
 Musik
-När släpptes hit-låten Despacito
+När släpptes hit-låten Despacito?
 2017
 2015
 2019
