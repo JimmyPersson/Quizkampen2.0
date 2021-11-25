@@ -54,7 +54,7 @@ public class WelcomePanel extends JPanel implements ActionListener {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         add(jLabel, gbc);
 
-        gbc.gridx = 0;
+        gbc.gridx = 1;
         gbc.weightx = 1;
         gbc.gridy = 1;
         gbc.weighty = 1;
@@ -64,15 +64,15 @@ public class WelcomePanel extends JPanel implements ActionListener {
 
         gbc.gridx = 1;
         gbc.weightx = 1;
-        gbc.gridy = 1;
+        gbc.gridy = 2;
         gbc.weighty = 1;
         gbc.gridwidth = 1;
         gbc.fill = GridBagConstraints.BOTH;
         add(jButton1, gbc);
 
-        gbc.gridx = 0;
+        gbc.gridx = 1;
         gbc.weightx = 1;
-        gbc.gridy = 2;
+        gbc.gridy = 3;
         gbc.weighty = 1;
         gbc.gridwidth = 1;
         gbc.fill = GridBagConstraints.BOTH;

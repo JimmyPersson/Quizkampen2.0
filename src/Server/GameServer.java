@@ -60,6 +60,7 @@ public class GameServer extends Thread {
         test:
         while (true) {
             if (roundCounter == roundLimit) {
+                output.println("EXIT");
                 break;
             }
             while (true) {
