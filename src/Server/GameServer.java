@@ -15,7 +15,6 @@ public class GameServer implements Runnable {
     Socket socket1;
     Socket socket2;
     String responseInput;
-    String responseInput2;
     BufferedReader input;
     PrintWriter output;
     BufferedReader input2;
@@ -23,6 +22,7 @@ public class GameServer implements Runnable {
     String result;
     JLabel jLabel = new JLabel("Welcome");
     String chosenCat;
+    String playedCat;
     int score1 = 0;
     int score2 = 0;
 
@@ -79,11 +79,15 @@ public class GameServer implements Runnable {
                     result = responseInput;
                     output2.println(result);
                 } else if (responseInput.startsWith("ENDROUND")) {
-                    chosenCat = responseInput.substring(8, responseInput.length() - 1);
+                    playedCat = chosenCat;
                     score2 = Integer.parseInt(responseInput.substring(responseInput.length() - 1));
                     System.out.println(score2);
                     System.out.println("test2");
-                    output2.println("SCORE"+score1+score2);
+                    output2.println("SCORE"+score1+score2);}
+                else if (responseInput.startsWith("NEXT")){
+                    System.out.println(playedCat);
+                    output.println("NEXT"+playedCat);
+                    break;
                 }
             } catch (Exception e) {
                 e.printStackTrace();

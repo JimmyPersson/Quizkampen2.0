@@ -8,9 +8,10 @@ public class ServerLogic {
     private String category;
     private ArrayList<String> categoryList = new ArrayList();
     PrintWriter out;
-    String responseInput;
+    String playedCat;
 
-    public ServerLogic() throws FileNotFoundException {
+    public ServerLogic(String playedCat) throws FileNotFoundException {
+        this.playedCat = playedCat;
         bufferedReader = new BufferedReader(new FileReader("src/Server/Database.txt"));
 
     }
@@ -18,6 +19,7 @@ public class ServerLogic {
     public ArrayList CategoryGetter() throws IOException {
         for (String line = bufferedReader.readLine(); line != null; line = bufferedReader.readLine()) {
             if (line.startsWith("???C")) {
+                if (!line.equals(playedCat))
                 categoryList.add(bufferedReader.readLine());
             }
         }

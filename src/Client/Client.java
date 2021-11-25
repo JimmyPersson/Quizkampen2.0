@@ -33,9 +33,11 @@ public class Client extends JFrame {
     private String response;
     private int score1;
     private int score2;
+    private String playedCat = null;
 
 
     public Client(String serverAddress) throws Exception {
+        this.setLocationRelativeTo(null);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(500, 500);
@@ -59,7 +61,7 @@ public class Client extends JFrame {
                setTitle("Welcome to Quizkampen, all players are connected!");
                getContentPane().removeAll();
                WelcomePanel welcome = new WelcomePanel(out);
-               ServerLogic category = new ServerLogic();
+               ServerLogic category = new ServerLogic(playedCat);
                add(welcome);
                revalidate();
                repaint();
@@ -76,18 +78,21 @@ public class Client extends JFrame {
                add(gamePanel);
                revalidate();
            }
-           else if (response.startsWith("ROUND")) {
-               GamePanel gamePanel = new GamePanel(out, response);
-               add(gamePanel);
-               revalidate();
-           }
            else if (response.startsWith("SCORE")){
                getContentPane().removeAll();
                score1 = Integer.parseInt(response.substring(5,6));
                score2 = Integer.parseInt(response.substring(6));
-               ScorePanel score = new ScorePanel(score1, score2);
+               ScorePanel score = new ScorePanel(out, score1, score2);
                add(score);
                revalidate();
+           }
+           else if (response.startsWith("NEXT")) {
+               getContentPane().removeAll();
+               WelcomePanel welcome = new WelcomePanel(out);
+               ServerLogic category = new ServerLogic(playedCat);
+               add(welcome);
+               revalidate();
+               repaint();
            }
 
 

@@ -14,7 +14,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 public class WelcomePanel extends JPanel implements ActionListener {
-    ServerLogic categories = new ServerLogic();
+    ServerLogic categories = new ServerLogic(null);
     JLabel jLabel = new JLabel("Welcome to Quizkampen! Choose a category:", SwingConstants.CENTER);
     JButton jButton = new JButton();
     JButton jButton1 = new JButton();

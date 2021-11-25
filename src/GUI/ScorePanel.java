@@ -1,8 +1,10 @@
 package GUI;
 
 import javax.swing.*;
+import java.io.PrintWriter;
 
 public class ScorePanel extends JPanel {
+    PrintWriter out;
     JLabel scoreP1 = new JLabel();
     JLabel scoreP2 = new JLabel();
     JLabel scoreP12 = new JLabel();
@@ -21,13 +23,14 @@ public class ScorePanel extends JPanel {
     int total1;
     int total2;
 
-    public ScorePanel(int score1, int score2) {
-
+    public ScorePanel(PrintWriter out, int score1, int score2) {
+        this.out = out;
 
         if (round == 0) {
             scoreR1P1 = score1;
             scoreP1.setText("" + scoreR1P1);
             round++;
+            out.println("NEXT");
         }
         if (round == 1) {
             scoreR1P2 = score2;
