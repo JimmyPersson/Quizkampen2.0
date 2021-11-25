@@ -30,10 +30,19 @@ public class GamePanel extends JPanel implements ActionListener {
     private ArrayList<String> questionList = new ArrayList();
     private int score = 0;
     private int loop = 0;
-    private int loopLimit = 2;
+    private int loopLimit;
 
 
     public GamePanel(PrintWriter out, String responseInput) throws IOException {
+        Properties p = new Properties();
+        try {
+            p.load(new FileInputStream("src/Server/properties.properties"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        loopLimit = Integer.parseInt(p.getProperty("customQuestionLimit", "4"));
+        loopLimit--;
+        System.out.println(loopLimit);
         this.out = out;
         this.chosenCat = responseInput.substring(3);
 
@@ -128,7 +137,7 @@ public class GamePanel extends JPanel implements ActionListener {
     public void updateGamepanel() {
 
 
-         if (loop <= loopLimit) {
+         if (loop < loopLimit) {
             Question = questionList.get(5 + 5 * loop);
             Answer1 = questionList.get(6 + 5 * loop);
             Answer2 = questionList.get(7 + 5 * loop);
