@@ -52,9 +52,8 @@ public class GameServer extends Thread {
     }
 
     public void run() {
-
+        test:
         while (true) {
-
             try {
                 responseInput = input.readLine();
 
@@ -82,6 +81,13 @@ public class GameServer extends Thread {
                     output2.println("SCORE" + score1 + score2);
                     System.out.println(score1 + score2);
                     output.println("NEXT");
+                    output2.println("WAITING");
+                    responseInput2 = "Rest";
+
+                  /*  responseInput2 = null;
+                    responseInput = input.readLine(); */
+                } else {
+                    continue test;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
