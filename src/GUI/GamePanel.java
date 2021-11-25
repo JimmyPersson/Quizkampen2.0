@@ -5,8 +5,6 @@ import java.awt.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.io.*;
 import java.util.*;
 import javax.swing.*;
@@ -33,6 +31,7 @@ public class GamePanel extends JPanel implements ActionListener {
     private int score = 0;
     private int loop = 0;
     private int loopLimit;
+    private ArrayList<String> buttonList = new ArrayList<>();
 
 
     public GamePanel(PrintWriter out, String responseInput) throws IOException {
@@ -57,12 +56,13 @@ public class GamePanel extends JPanel implements ActionListener {
 
         jl1.setFont(new Font("Arial", Font.BOLD, 16));
         jl1.setOpaque(true);
-        jl1.setPreferredSize(new Dimension(400,100));
+        jl1.setPreferredSize(new Dimension(400, 100));
 
         jb1.setFont(new Font("Arial", Font.BOLD, 16));
         jb2.setFont(new Font("Arial", Font.BOLD, 16));
         jb3.setFont(new Font("Arial", Font.BOLD, 16));
         jb4.setFont(new Font("Arial", Font.BOLD, 16));
+
 
         br = new BufferedReader(new FileReader("src/Server/Database.txt"));
         for (String line = br.readLine(); line != null; line = br.readLine()) {
@@ -77,6 +77,7 @@ public class GamePanel extends JPanel implements ActionListener {
                 }
             }
         }
+
         Question = questionList.get(0);
         Answer1 = questionList.get(1);
         Answer2 = questionList.get(2);
@@ -84,6 +85,16 @@ public class GamePanel extends JPanel implements ActionListener {
         Answer4 = questionList.get(4);
         CorrectAnswer = Answer1;
 
+        buttonList.add(Answer1);
+        buttonList.add(Answer2);
+        buttonList.add(Answer3);
+        buttonList.add(Answer4);
+        Collections.shuffle(buttonList);
+
+        jb1.setText(buttonList.get(0));
+        jb2.setText(buttonList.get(1));
+        jb3.setText(buttonList.get(2));
+        jb4.setText(buttonList.get(3));
 
         gbc.gridx = 0;
         gbc.weightx = 1;
@@ -101,32 +112,7 @@ public class GamePanel extends JPanel implements ActionListener {
         gbc.gridwidth = 1;
         gbc.fill = GridBagConstraints.BOTH;
         add(jb1, gbc);
-        jb1.setText(Answer1);
         jb1.addActionListener(this);
-        jb1.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-            }
-            @Override
-            public void mousePressed(MouseEvent e) {
-                jb1.setContentAreaFilled(false);
-                jb1.setBackground(Color.GREEN);
-                jb1.setOpaque(true);
-            }
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                jb1.setOpaque(true);
-                jb1.setBorderPainted(false);
-                jb1.setBackground(Color.white);
-            }
-            @Override
-            public void mouseEntered(MouseEvent e) {
-            }
-            @Override
-            public void mouseExited(MouseEvent e) {
-            }
-        });
-
 
         gbc.gridx = 1;
         gbc.weightx = 1;
@@ -135,31 +121,7 @@ public class GamePanel extends JPanel implements ActionListener {
         gbc.gridwidth = 1;
         gbc.fill = GridBagConstraints.BOTH;
         add(jb2, gbc);
-        jb2.setText(Answer2);
         jb2.addActionListener(this);
-        jb2.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-            }
-            @Override
-            public void mousePressed(MouseEvent e) {
-                jb2.setContentAreaFilled(false);
-                jb2.setBackground(Color.RED);
-                jb2.setOpaque(true);
-            }
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                jb2.setOpaque(true);
-                jb2.setBorderPainted(false);
-                jb2.setBackground(Color.white);
-            }
-            @Override
-            public void mouseEntered(MouseEvent e) {
-            }
-            @Override
-            public void mouseExited(MouseEvent e) {
-            }
-        });
 
         gbc.gridx = 0;
         gbc.weightx = 1;
@@ -168,31 +130,7 @@ public class GamePanel extends JPanel implements ActionListener {
         gbc.gridwidth = 1;
         gbc.fill = GridBagConstraints.BOTH;
         add(jb3, gbc);
-        jb3.setText(Answer3);
         jb3.addActionListener(this);
-        jb3.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-            }
-            @Override
-            public void mousePressed(MouseEvent e) {
-                jb3.setContentAreaFilled(false);
-                jb3.setBackground(Color.RED);
-                jb3.setOpaque(true);
-            }
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                jb3.setOpaque(true);
-                jb3.setBorderPainted(false);
-                jb3.setBackground(Color.white);
-            }
-            @Override
-            public void mouseEntered(MouseEvent e) {
-            }
-            @Override
-            public void mouseExited(MouseEvent e) {
-            }
-        });
 
         gbc.gridx = 1;
         gbc.weightx = 1;
@@ -201,37 +139,13 @@ public class GamePanel extends JPanel implements ActionListener {
         gbc.gridwidth = 1;
         gbc.fill = GridBagConstraints.BOTH;
         add(jb4, gbc);
-        jb4.setText(Answer4);
         jb4.addActionListener(this);
-        jb4.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-            }
-            @Override
-            public void mousePressed(MouseEvent e) {
-                jb4.setContentAreaFilled(false);
-                jb4.setBackground(Color.RED);
-                jb4.setOpaque(true);
-            }
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                jb4.setOpaque(true);
-                jb4.setBorderPainted(false);
-                jb4.setBackground(Color.white);
-            }
-            @Override
-            public void mouseEntered(MouseEvent e) {
-            }
-            @Override
-            public void mouseExited(MouseEvent e) {
-            }
-        });
     }
 
     public void updateGamepanel() {
 
 
-         if (loop < loopLimit) {
+        if (loop < loopLimit) {
             Question = questionList.get(5 + 5 * loop);
             Answer1 = questionList.get(6 + 5 * loop);
             Answer2 = questionList.get(7 + 5 * loop);
@@ -243,13 +157,22 @@ public class GamePanel extends JPanel implements ActionListener {
 
             jl1.setText(Question);
 
-            jb1.setText(Answer1);
-            jb2.setText(Answer2);
-            jb3.setText(Answer3);
-            jb4.setText(Answer4);
-        }
-        else {
-            out.println("ENDROUND"+chosenCat+score);
+            buttonList.clear();
+            buttonList.add(Answer1);
+            buttonList.add(Answer2);
+            buttonList.add(Answer3);
+            buttonList.add(Answer4);
+
+            Collections.shuffle(buttonList);
+
+            jb1.setText(buttonList.get(0));
+            jb2.setText(buttonList.get(1));
+            jb3.setText(buttonList.get(2));
+            jb4.setText(buttonList.get(3));
+
+
+        } else {
+            out.println("ENDROUND" + chosenCat + score);
         }
     }
 
@@ -273,12 +196,11 @@ public class GamePanel extends JPanel implements ActionListener {
                 score++;
                 updateGamepanel();
             } else {
-               updateGamepanel();
+                updateGamepanel();
             }
         }
         if (e.getSource() == jb3) {
             if (jb3.getText().equals(CorrectAnswer)) {
-
                 score++;
                 updateGamepanel();
             } else {
