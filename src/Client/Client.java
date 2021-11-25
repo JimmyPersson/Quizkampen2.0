@@ -32,7 +32,7 @@ public class Client extends JFrame {
 
     public Client(String serverAddress) throws Exception {
         this.score = "";
-        JLabel jLabel = new JLabel("Wating for player..", SwingConstants.CENTER);
+        JLabel jLabel = new JLabel("Waiting for player..", SwingConstants.CENTER);
         jLabel.setBackground(new Color(30, 120, 200));
         this.setBackground(new Color(30, 120, 200));
         jLabel.setOpaque(true);
@@ -86,6 +86,7 @@ public class Client extends JFrame {
                ScorePanel scorepan = new ScorePanel(out, score);
                add(scorepan);
                revalidate();
+               Thread.sleep(2000);
            }
            else if (response.startsWith("NEXT")) {
                getContentPane().removeAll();
@@ -95,51 +96,17 @@ public class Client extends JFrame {
                revalidate();
                repaint();
            }
+           else if (response.startsWith("ROUNDSCORE")){
+               getContentPane().removeAll();
+               score = (response.substring(10));
+               ScorePanel scorepan = new ScorePanel(out, score);
+               add(scorepan);
+               revalidate();
+               Thread.sleep(2000);
+           }
 
 
-           /* while (true) {
-                response = in.readLine();
-                if (response.startsWith("<CATEGORY>")) {
-                    this.removeAll();
-                    //kalla på categorypanel
-                    this.revalidate();
-                    this.repaint();
-                }
-                } else if (response.startsWith("")) {
-                    int loc = Integer.parseInt(response.substring(15));
-                    board[loc].setText(String.valueOf(opponentMark));
-                    board[loc].repaint();
-                    messageLabel.setText("Opponent moved, your turn");
-                } else if (response.startsWith("VICTORY")) {
-                    messageLabel.setText("You win");
-                    break;
-                } else if (response.startsWith("DEFEAT")) {
-                    messageLabel.setText("You lose");
-                    break;
-                } else if (response.startsWith("TIE")) {
-                    messageLabel.setText("You tied");
-                    break;
-                } else if (response.startsWith("MESSAGE")) {
-                    messageLabel.setText(response.substring(8));
-                }
-            }
-            out.println("QUIT");
-        }
-        finally {
-            socket.close();
-        }
-    }*/
-
-    /*private boolean wantsToPlayAgain() {
-        int response = JOptionPane.showConfirmDialog(frame,
-                "Want to play again?",
-                "Tic Tac Toe is Fun Fun Fun",
-                JOptionPane.YES_NO_OPTION);
-        frame.dispose();
-        return response == JOptionPane.YES_OPTION;
-    }
-*/
-       } catch (IOException e) {
+       } catch (IOException | InterruptedException e) {
            e.printStackTrace();
        }}}
 

@@ -23,7 +23,6 @@ public class GameServer extends Thread {
     BufferedReader input2;
     PrintWriter output2;
     String result;
-    JLabel jLabel = new JLabel("Welcome");
     String chosenCat;
     String playedCat;
     String score = "";
@@ -70,6 +69,7 @@ public class GameServer extends Thread {
                         score = score + (responseInput.substring(responseInput.length() - 1));
                         System.out.println("Score p1: "+ score);
                         output.println("SCORE" + score);
+
                         output2.println("CAT" + chosenCat);
                         output.println("WAITING");
                         break;
@@ -82,17 +82,14 @@ public class GameServer extends Thread {
                 try {
                     responseInput2 = input2.readLine();
 
-
-                    if (responseInput2.startsWith("CAT")) {
-                        output2.println(responseInput2);
-                        System.out.println("Test26262");
-                    } else if (responseInput2.startsWith("ENDROUND")) {
+                     if (responseInput2.startsWith("ENDROUND")) {
                         playedCat = chosenCat;
                         score = score + (responseInput2.substring(responseInput2.length() - 1));
                         System.out.println("Score p2: "+ score);
                         output2.println("SCORE" + score);
-                        output.println("NEXT");
+                        output.println("ROUNDSCORE" + score);
                         output2.println("WAITING");
+                        output.println("NEXT");
                         continue test;
                     }
 
