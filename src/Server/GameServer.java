@@ -81,10 +81,7 @@ public class GameServer implements Runnable {
                     System.out.println("test2");
                     output2.println("SCORE" + score1 + score2);
                     System.out.println(score1 + score2);
-                } else if (responseInput2.startsWith("NEXT")) {
-                    System.out.println("bobobob");
                     output.println("NEXT");
-                    output2.println("WAITING");
                 }
             } catch (Exception e) {
                 e.printStackTrace();
