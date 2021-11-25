@@ -1,7 +1,6 @@
 package GUI;
 
 import Server.ServerLogic;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
