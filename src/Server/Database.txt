@@ -22,32 +22,162 @@ Vad är 10+10?
 50
 <>
 ???C
-Kattmat
-Vad är Whiskas?
-4
-5
+Marvel-filmer
+Vilken av dessa titlar är INTE namnet på en Marvel-film??
+Avengers: Return of the Jedi
+Avengers: Age of Ultron
+Captain America: The first avenger
+Avengers: Endgame
+Vad heter skådespelaren som gestaltar Iron man??
+Robert Downey Junior
+Daniel Downey Junior
+Paul Rudd
+Chris Hemsworth
+Vad kallas Thors hammare?
+Mjolnir
+Jarvis
+Steve
+Gungnir
+Hur många evighetsstenar behöver Thanos samla för att uppnå sitt mål?
 6
-7
-Hattfnask?
-3
-4
 5
-6
-Hur många?
-4
-5
-6
-7
-Kan du verkligen?
-3
-4
-5
-JA
-???C
-Kallabalik
-Vad är 2?
-Inget
-3
-Apa
-18
+12
+8
 <>
+???C
+Kampsport
+Från vilket land kommer kampsporten Karate?
+Japan
+Kina
+Thailand
+Korea
+Vad betyder Taekwondo?
+Foten och handens väg
+Tom hand
+Sparken och slagets väg
+Den mjuka vägen
+Vad var Bruce Lees riktiga namn?
+Jun Fan Lee
+Jet Lee
+Jackie Chan
+Donnie Yen
+Vilket alternativ är inte ett vapen som används inom kampsport?
+Taebo
+Nunchaku
+Bo
+Sai
+<>
+???C
+Geografi
+Vad heter Europas längsta och vattenrikaste flod?
+Volga
+Donau
+Rhen
+Elbe
+Vad heter Kanadas huvudstad?",
+Ottawa
+Washington
+Montreal
+Ontario
+Var hittar man tornet Big Ben?
+London
+Paris
+Köpenhamn
+Sydney
+Vilket land kallades Rhodesia?
+Zimbabwe
+Eritrea
+Sudan
+Kambodja
+<>
+???C
+Mat och dryck
+Vad är ett zestjärn?
+Ett rivjärn för citrusfrukter
+En kakform
+Ett slags våffeljärn
+En kaffekvarn
+Vilken kryddväxt kallas även kungsmynta?
+Oregano
+Timjan
+Salvia
+Dragon
+Till vilken dryckeskategori tillhör Amarone?
+Rödvin
+Öl
+Rom
+Läskedryck
+Hummus och falafel har samma huvudingrediens - vilken?
+Kikärtor
+Persilja
+Soja
+Ris
+<>
+???C
+Sport
+Vilket land vann Fotbolls-EM 2012?
+Spanien
+Tyskland
+Grekland
+England
+Vilket år vann Andre´ Myhrer OS-guld i Slalom?
+2018
+2008
+2019
+1999
+Vilket herrlandslag vann innebandy-VM 2018?
+Finland
+Sverige
+Tjeckien
+USA
+Hur många olympiska OS-medaljer har Sarah Sjöström tagit?
+4
+1
+9
+5
+<>
+???C
+Politiker
+Vilket år föddes Barack Obama?
+1961
+1955
+1969
+1960
+Hur många riksdagsledamöter sitter i riksdagen?
+349
+359
+249
+399
+När gick Danmark med i EU?
+1973
+1961
+1981
+1982
+Vad kallas det brittiska Överhuset?
+House of Lords
+House of Representatives
+Riksdagen
+House of Commons
+<>
+???C
+Människokroppen
+Vad kallas det blodkärl som för tillbaka syrefattigt blod till hjärtat?
+Ven
+Kapillär
+Artär
+Märg
+Hur många ben består en mänsklig skalle av?
+23
+22
+4
+8
+Vad är mjältens främsta funktion?
+Bryta ner gamla blodkroppar
+Smälta föda
+Rensa kroppen på gifter
+Reglera kroppstemperatur
+Vad är Alzheimers sjukdom?
+En hjärnsjukdom
+En typ av Cancer
+Hudsjukdom
+Hjärtfel
