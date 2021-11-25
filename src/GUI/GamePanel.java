@@ -126,8 +126,13 @@ public class GamePanel extends JPanel implements ActionListener {
     }
 
     public void updateGamepanel() {
+        ArrayList<String> q1 = new ArrayList<>();
+        for (int i = 0; i < loopLimit; i++) {
+            q1.add(questionList.get(i));
 
-        if (loop <= loopLimit) {
+        }
+
+         if (loop <= loopLimit) {
             Question = questionList.get(5 + 5 * loop);
             Answer1 = questionList.get(6 + 5 * loop);
             Answer2 = questionList.get(7 + 5 * loop);
@@ -147,6 +152,7 @@ public class GamePanel extends JPanel implements ActionListener {
         else {
             System.out.println("ENDROUND"+chosenCat+score);
             out.println("ENDROUND"+chosenCat+score);
+
 
         }
     }
