@@ -4,10 +4,7 @@ import GUI.GamePanel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Properties;
@@ -26,12 +23,18 @@ public class GameServer extends Thread {
     String chosenCat;
     String playedCat;
     String score = "";
-
-
-
+    int roundLimit;
+    int roundCounter = 0;
 
     public GameServer(Socket socket1, Socket socket2) throws IOException {
-
+        Properties p = new Properties();
+        try {
+            p.load(new FileInputStream("src/Server/properties.properties"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        roundLimit = Integer.parseInt(p.getProperty("customRoundLimit", "3"));
+        System.out.println(roundLimit);
         this.socket1 = socket1;
         this.socket2 = socket2;
 
@@ -56,7 +59,9 @@ public class GameServer extends Thread {
 
         test:
         while (true) {
-
+            if (roundCounter == roundLimit) {
+                break;
+            }
             while (true) {
                 try {
                     responseInput = input.readLine();
@@ -67,7 +72,7 @@ public class GameServer extends Thread {
                     } else if (responseInput.startsWith("ENDROUND")) {
                         chosenCat = responseInput.substring(8, responseInput.length() - 1);
                         score = score + (responseInput.substring(responseInput.length() - 1));
-                        System.out.println("Score p1: "+ score);
+                        System.out.println("Score p1: " + score);
                         output.println("SCORE" + score);
 
                         output2.println("CAT" + chosenCat);
@@ -85,11 +90,12 @@ public class GameServer extends Thread {
                      if (responseInput2.startsWith("ENDROUND")) {
                         playedCat = chosenCat;
                         score = score + (responseInput2.substring(responseInput2.length() - 1));
-                        System.out.println("Score p2: "+ score);
+                        System.out.println("Score p2: " + score);
                         output2.println("SCORE" + score);
                         output.println("ROUNDSCORE" + score);
                         output2.println("WAITING");
                         output.println("NEXT");
+                        roundCounter++;
                         continue test;
                     }
 
