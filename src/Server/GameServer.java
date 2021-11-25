@@ -75,13 +75,14 @@ public class GameServer extends Thread {
                     output2.println(responseInput2);
                     System.out.println("Test26262");
                 } else if (responseInput2.startsWith("ENDROUND")) {
+                    System.out.println("Hej hej");
                     playedCat = chosenCat;
                     score2 = Integer.parseInt(responseInput2.substring(responseInput2.length() - 1));
                     System.out.println(score2);
                     System.out.println("test2");
-                    output2.println("SCORE" + score1 + score2);
+                    output2.println("WAITING");
                     System.out.println(score1 + score2);
-                    output.println("NEXT");
+                    output.println("GAMETIME");
                 }
             } catch (Exception e) {
                 e.printStackTrace();
