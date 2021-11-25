@@ -24,7 +24,7 @@ public class WelcomePanel extends JPanel implements ActionListener {
     JButton jButton2 = new JButton();
     String choice;
     PrintWriter out;
-
+//B
     public WelcomePanel(PrintWriter out) throws IOException {
         this.setBackground(new Color(30, 120, 200));
         this.setVisible(true);
