@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 public class ServerLogic {
     private BufferedReader bufferedReader;
-    private String category;
     private ArrayList<String> categoryList = new ArrayList();
     String playedCat;
 
