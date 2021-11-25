@@ -12,6 +12,8 @@ public class ScorePanel extends JPanel {
     JLabel scoreP22 = new JLabel("", SwingConstants.CENTER);
     JLabel scoreP13 = new JLabel("", SwingConstants.CENTER);
     JLabel scoreP23 = new JLabel("", SwingConstants.CENTER);
+    JLabel scoreP14 = new JLabel("", SwingConstants.CENTER);
+    JLabel scoreP24 = new JLabel("", SwingConstants.CENTER);
     JLabel totalscore1 = new JLabel("", SwingConstants.CENTER);
     JLabel totalscore2 = new JLabel("", SwingConstants.CENTER);
     JLabel player1 = new JLabel("Player 1", SwingConstants.CENTER);
@@ -24,6 +26,8 @@ public class ScorePanel extends JPanel {
     int scoreR3P2 = 0;
     int scoreR4P1 = 0;
     int scoreR4P2 = 0;
+    int total1 = 0;
+    int total2 = 0;
     String score;
 
     public ScorePanel(PrintWriter out, String score) {
@@ -50,46 +54,49 @@ public class ScorePanel extends JPanel {
         player2.setForeground(Color.white);
 
         this.out = out;
-        System.out.println("HEEEEELP!");
 
             if(score.length() == 1){
                 System.out.println("Score lenght1 "+ score.length());
-                scoreR1P1 = Integer.parseInt(score.substring(1));
+                scoreR1P1 = Integer.parseInt(score);
+                scoreP1.setText(""+scoreR1P1);
                 System.out.println(scoreR1P1);
             }
             else if (score.length() == 2){
                 System.out.println("Score lenght "+ score.length());
-                scoreR1P2 = Integer.parseInt(score.substring(2));
+                scoreR1P2 = Integer.parseInt(score.substring(1));
+                scoreR1P1 = Integer.parseInt(score.substring(0));
+                scoreP1 =
+                scoreP2.setText(""+scoreR1P2);
                 System.out.println(scoreR1P2);
             }
             else if (score.length() == 3){
                 System.out.println("Score lenght "+ score.length());
-                scoreR2P1 = Integer.parseInt(score.substring(3));
+                scoreR2P1 = Integer.parseInt(score.substring(2));
                 System.out.println(scoreR1P2);
             }
             else if (score.length() == 4){
                 System.out.println("Score lenght "+ score.length());
-                scoreR2P2 = Integer.parseInt(score.substring(4));
+                scoreR2P2 = Integer.parseInt(score.substring(3));
                 System.out.println(scoreR1P2);
             }
             else if (score.length() == 5){
                 System.out.println("Score lenght "+ score.length());
-                scoreR3P1 = Integer.parseInt(score.substring(5));
+                scoreR3P1 = Integer.parseInt(score.substring(4));
                 System.out.println(scoreR1P2);
             }
             else if (score.length() == 6){
                 System.out.println("Score lenght "+ score.length());
-                scoreR3P2 = Integer.parseInt(score.substring(6));
+                scoreR3P2 = Integer.parseInt(score.substring(5));
                 System.out.println(scoreR1P2);
             }
             else if (score.length() == 7){
                 System.out.println("Score lenght "+ score.length());
-                scoreR4P1 = Integer.parseInt(score.substring(7));
+                scoreR4P1 = Integer.parseInt(score.substring(6));
                 System.out.println(scoreR1P2);
             }
-            else if (score.length() == 7){
+            else if (score.length() == 8){
                 System.out.println("Score lenght "+ score.length());
-                scoreR4P2 = Integer.parseInt(score.substring(8));
+                scoreR4P2 = Integer.parseInt(score.substring(7));
                 System.out.println(scoreR1P2);
             }
 
@@ -167,4 +174,4 @@ public class ScorePanel extends JPanel {
 
 
     }
-}}
+}
