@@ -36,6 +36,7 @@ public class ScorePanel extends JPanel {
             scoreR1P2 = score2;
             scoreP2.setText("" + scoreR1P2);
             round++;
+            out.println("NEXT");
         }
         if (round == 2) {
             scoreR2P1 = score1;

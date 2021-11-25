@@ -151,10 +151,6 @@ public class GamePanel extends JPanel implements ActionListener {
         }
     }
 
-    public int getLoop() {
-        return loop;
-    }
-
     public void setLoop(int loop) {
         this.loop = loop;
     }

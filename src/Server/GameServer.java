@@ -49,46 +49,57 @@ public class GameServer implements Runnable {
         }
 
     }
+
     public void run() {
 
-        while (true) {
-            try {
-                responseInput = input.readLine();
-                if (responseInput.startsWith("CAT")) {
-                    result = responseInput;
-                    output.println(result);
-                } else if (responseInput.startsWith("ENDROUND")) {
-                    chosenCat = responseInput.substring(8, responseInput.length() - 1);
-                    score1 = Integer.parseInt(responseInput.substring(responseInput.length() - 1));
-                    System.out.println(score1);
-                    System.out.println("test2");
-                    output.println("SCORE"+score1+score2);
-                    output2.println("CAT" + chosenCat);
-                    break;
-                }
+            while (true) {
+                if (input != null){
+                try {
+                    responseInput = input.readLine();
+                    if (responseInput.startsWith("CAT")) {
+                        result = responseInput;
+                        output.println(result);
+                    } else if (responseInput.startsWith("ENDROUND")) {
+                        chosenCat = responseInput.substring(8, responseInput.length() - 1);
+                        score1 = Integer.parseInt(responseInput.substring(responseInput.length() - 1));
+                        System.out.println(score1);
+                        System.out.println("test1");
+                        output.println("SCORE" + score1 + score2);
+                        output2.println("CAT" + chosenCat);
+                        break;
+                    }
 
 
                 } catch (IOException e) {
-                e.printStackTrace();
+                    e.printStackTrace();
+                }
+            }
+                else break;
+        }
+
+            while (true) {
+                try {
+                    responseInput = input2.readLine();
+                    if (responseInput.startsWith("CAT")) {
+                        output2.println(responseInput);
+                        System.out.println("Test26262");
+                    } else if (responseInput.startsWith("ENDROUND")) {
+                        playedCat = chosenCat;
+                        score2 = Integer.parseInt(responseInput.substring(responseInput.length() - 1));
+                        System.out.println(score2);
+                        System.out.println("test2");
+                        output2.println("SCORE" + score1 + score2);
+                        System.out.println(score1 + score2);
+                    } else if (responseInput.startsWith("NEXT")) {
+                        System.out.println(playedCat);
+                        output.println("NEXT" + playedCat);
+                        break;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
-        while (true) {
-            try {
-                responseInput = input2.readLine();
-                if (responseInput.startsWith("CAT")) {
-                    result = responseInput;
-                    output2.println(result);
-                } else if (responseInput.startsWith("ENDROUND")) {
-                    playedCat = chosenCat;
-                    score2 = Integer.parseInt(responseInput.substring(responseInput.length() - 1));
-                    System.out.println(score2);
-                    System.out.println("test2");
-                    output2.println("SCORE"+score1+score2);}
-                else if (responseInput.startsWith("NEXT")){
-                    System.out.println(playedCat);
-                    output.println("NEXT"+playedCat);
-                    break;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-        }}}}
+    }
+
+
