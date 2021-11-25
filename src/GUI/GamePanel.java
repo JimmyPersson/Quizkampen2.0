@@ -5,6 +5,8 @@ import java.awt.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.*;
 import java.util.*;
 import javax.swing.*;
@@ -92,7 +94,6 @@ public class GamePanel extends JPanel implements ActionListener {
         add(jl1, gbc);
         jl1.setText(Question);
 
-
         gbc.gridx = 0;
         gbc.weightx = 1;
         gbc.gridy = 1;
@@ -102,6 +103,30 @@ public class GamePanel extends JPanel implements ActionListener {
         add(jb1, gbc);
         jb1.setText(Answer1);
         jb1.addActionListener(this);
+        jb1.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+            }
+            @Override
+            public void mousePressed(MouseEvent e) {
+                jb1.setContentAreaFilled(false);
+                jb1.setBackground(Color.GREEN);
+                jb1.setOpaque(true);
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                jb1.setOpaque(true);
+                jb1.setBorderPainted(false);
+                jb1.setBackground(Color.white);
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+            }
+        });
+
 
         gbc.gridx = 1;
         gbc.weightx = 1;
@@ -112,6 +137,29 @@ public class GamePanel extends JPanel implements ActionListener {
         add(jb2, gbc);
         jb2.setText(Answer2);
         jb2.addActionListener(this);
+        jb2.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+            }
+            @Override
+            public void mousePressed(MouseEvent e) {
+                jb2.setContentAreaFilled(false);
+                jb2.setBackground(Color.RED);
+                jb2.setOpaque(true);
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                jb2.setOpaque(true);
+                jb2.setBorderPainted(false);
+                jb2.setBackground(Color.white);
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+            }
+        });
 
         gbc.gridx = 0;
         gbc.weightx = 1;
@@ -122,6 +170,29 @@ public class GamePanel extends JPanel implements ActionListener {
         add(jb3, gbc);
         jb3.setText(Answer3);
         jb3.addActionListener(this);
+        jb3.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+            }
+            @Override
+            public void mousePressed(MouseEvent e) {
+                jb3.setContentAreaFilled(false);
+                jb3.setBackground(Color.RED);
+                jb3.setOpaque(true);
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                jb3.setOpaque(true);
+                jb3.setBorderPainted(false);
+                jb3.setBackground(Color.white);
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+            }
+        });
 
         gbc.gridx = 1;
         gbc.weightx = 1;
@@ -132,6 +203,29 @@ public class GamePanel extends JPanel implements ActionListener {
         add(jb4, gbc);
         jb4.setText(Answer4);
         jb4.addActionListener(this);
+        jb4.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+            }
+            @Override
+            public void mousePressed(MouseEvent e) {
+                jb4.setContentAreaFilled(false);
+                jb4.setBackground(Color.RED);
+                jb4.setOpaque(true);
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                jb4.setOpaque(true);
+                jb4.setBorderPainted(false);
+                jb4.setBackground(Color.white);
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+            }
+        });
     }
 
     public void updateGamepanel() {
