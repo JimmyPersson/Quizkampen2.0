@@ -64,13 +64,11 @@ public class ScorePanel extends JPanel {
         this.out = out;
 
         if (score.length() == 1) {
-            System.out.println("Score lenght1 " + score.length());
             scoreR1P1 = Integer.parseInt(score);
             scoreP1.setText("" + scoreR1P1);
             total1 = scoreR1P1;
             totalscore1.setText("Total: " + total1);
         } else if (score.length() == 2) {
-            System.out.println("Score lenght " + score.length());
             scoreR1P2 = Integer.parseInt(score.substring(1));
             scoreR1P1 = Integer.parseInt(score.substring(0, 1));
             scoreP1.setText("" + scoreR1P1);
@@ -81,7 +79,6 @@ public class ScorePanel extends JPanel {
             totalscore2.setText("Total: " + total2);
 
         } else if (score.length() == 3) {
-            System.out.println("Score lenght " + score.length());
             scoreR2P1 = Integer.parseInt(score.substring(2));
             scoreR1P2 = Integer.parseInt(score.substring(1, 2));
             scoreR1P1 = Integer.parseInt(score.substring(0, 1));
@@ -93,7 +90,6 @@ public class ScorePanel extends JPanel {
             totalscore1.setText("Total: " + total1);
             totalscore2.setText("Total: " + total2);
         } else if (score.length() == 4) {
-            System.out.println("Score lenght " + score.length());
             scoreR2P2 = Integer.parseInt(score.substring(3));
             scoreR2P1 = Integer.parseInt(score.substring(2, 3));
             scoreR1P2 = Integer.parseInt(score.substring(1, 2));
@@ -107,7 +103,6 @@ public class ScorePanel extends JPanel {
             totalscore1.setText("Total: " + total1);
             totalscore2.setText("Total: " + total2);
         } else if (score.length() == 5) {
-            System.out.println("Score lenght " + score.length());
             scoreR3P1 = Integer.parseInt(score.substring(4));
             scoreR2P2 = Integer.parseInt(score.substring(3, 4));
             scoreR2P1 = Integer.parseInt(score.substring(2, 3));
@@ -124,7 +119,6 @@ public class ScorePanel extends JPanel {
             totalscore2.setText("Total: " + total2);
 
         } else if (score.length() == 6) {
-            System.out.println("Score lenght " + score.length());
             scoreR3P2 = Integer.parseInt(score.substring(5));
             scoreR3P1 = Integer.parseInt(score.substring(4, 5));
             scoreR2P2 = Integer.parseInt(score.substring(3, 4));
@@ -142,7 +136,6 @@ public class ScorePanel extends JPanel {
             totalscore1.setText("Total: " + total1);
             totalscore2.setText("Total: " + total2);
         } else if (score.length() == 7) {
-            System.out.println("Score lenght " + score.length());
             scoreR4P1 = Integer.parseInt(score.substring(6));
             scoreR3P2 = Integer.parseInt(score.substring(5, 6));
             scoreR3P1 = Integer.parseInt(score.substring(4, 5));
@@ -162,7 +155,6 @@ public class ScorePanel extends JPanel {
             totalscore1.setText("Total: " + total1);
             totalscore2.setText("Total: " + total2);
         } else if (score.length() == 8) {
-            System.out.println("Score lenght " + score.length());
             scoreR4P2 = Integer.parseInt(score.substring(7));
             scoreR4P1 = Integer.parseInt(score.substring(6, 7));
             scoreR3P2 = Integer.parseInt(score.substring(5, 6));

@@ -4,8 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.io.*;
 import java.util.*;
 
@@ -44,7 +42,6 @@ public class GamePanel extends JPanel implements ActionListener {
         }
         loopLimit = Integer.parseInt(p.getProperty("customQuestionLimit", "4"));
         loopLimit--;
-        System.out.println(loopLimit);
         this.out = out;
         this.chosenCat = responseInput.substring(3);
 
@@ -57,7 +54,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
         jl1.setFont(new Font("Arial", Font.BOLD, 16));
         jl1.setOpaque(true);
-        jl1.setPreferredSize(new Dimension(400,100));
+        jl1.setPreferredSize(new Dimension(400, 100));
 
         jb1.setFont(new Font("Arial", Font.BOLD, 16));
         jb2.setFont(new Font("Arial", Font.BOLD, 16));
@@ -67,7 +64,6 @@ public class GamePanel extends JPanel implements ActionListener {
         br = new BufferedReader(new FileReader("src/Server/Database.txt"));
         for (String line = br.readLine(); line != null; line = br.readLine()) {
             category = responseInput.substring(3);
-            System.out.println(category);
             for (line = br.readLine(); line != null; line = br.readLine()) {
 
                 if (line.startsWith(category)) {
@@ -113,29 +109,6 @@ public class GamePanel extends JPanel implements ActionListener {
         add(jb1, gbc);
         jb1.setText(Answer1);
         jb1.addActionListener(this);
-        jb1.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-            }
-            @Override
-            public void mousePressed(MouseEvent e) {
-                jb1.setContentAreaFilled(false);
-                jb1.setBackground(Color.GREEN);
-                jb1.setOpaque(true);
-            }
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                jb1.setOpaque(true);
-                jb1.setBorderPainted(false);
-                jb1.setBackground(Color.white);
-            }
-            @Override
-            public void mouseEntered(MouseEvent e) {
-            }
-            @Override
-            public void mouseExited(MouseEvent e) {
-            }
-        });
 
 
         gbc.gridx = 1;
@@ -147,29 +120,7 @@ public class GamePanel extends JPanel implements ActionListener {
         add(jb2, gbc);
         jb2.setText(Answer2);
         jb2.addActionListener(this);
-        jb2.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-            }
-            @Override
-            public void mousePressed(MouseEvent e) {
-                jb2.setContentAreaFilled(false);
-                jb2.setBackground(Color.RED);
-                jb2.setOpaque(true);
-            }
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                jb2.setOpaque(true);
-                jb2.setBorderPainted(false);
-                jb2.setBackground(Color.white);
-            }
-            @Override
-            public void mouseEntered(MouseEvent e) {
-            }
-            @Override
-            public void mouseExited(MouseEvent e) {
-            }
-        });
+
 
         gbc.gridx = 0;
         gbc.weightx = 1;
@@ -180,29 +131,7 @@ public class GamePanel extends JPanel implements ActionListener {
         add(jb3, gbc);
         jb3.setText(Answer3);
         jb3.addActionListener(this);
-        jb3.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-            }
-            @Override
-            public void mousePressed(MouseEvent e) {
-                jb3.setContentAreaFilled(false);
-                jb3.setBackground(Color.RED);
-                jb3.setOpaque(true);
-            }
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                jb3.setOpaque(true);
-                jb3.setBorderPainted(false);
-                jb3.setBackground(Color.white);
-            }
-            @Override
-            public void mouseEntered(MouseEvent e) {
-            }
-            @Override
-            public void mouseExited(MouseEvent e) {
-            }
-        });
+
 
         gbc.gridx = 1;
         gbc.weightx = 1;
@@ -213,35 +142,12 @@ public class GamePanel extends JPanel implements ActionListener {
         add(jb4, gbc);
         jb4.setText(Answer4);
         jb4.addActionListener(this);
-        jb4.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-            }
-            @Override
-            public void mousePressed(MouseEvent e) {
-                jb4.setContentAreaFilled(false);
-                jb4.setBackground(Color.RED);
-                jb4.setOpaque(true);
-            }
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                jb4.setOpaque(true);
-                jb4.setBorderPainted(false);
-                jb4.setBackground(Color.white);
-            }
-            @Override
-            public void mouseEntered(MouseEvent e) {
-            }
-            @Override
-            public void mouseExited(MouseEvent e) {
-            }
-        });
     }
+
 
     public void updateGamepanel() {
 
-
-         if (loop < loopLimit) {
+        if (loop < loopLimit) {
             Question = questionList.get(5 + 5 * loop);
             Answer1 = questionList.get(6 + 5 * loop);
             Answer2 = questionList.get(7 + 5 * loop);
@@ -252,21 +158,20 @@ public class GamePanel extends JPanel implements ActionListener {
             CorrectAnswer = Answer1;
 
             jl1.setText(Question);
-             buttonList.clear();
-             buttonList.add(Answer1);
-             buttonList.add(Answer2);
-             buttonList.add(Answer3);
-             buttonList.add(Answer4);
+            buttonList.clear();
+            buttonList.add(Answer1);
+            buttonList.add(Answer2);
+            buttonList.add(Answer3);
+            buttonList.add(Answer4);
 
-             Collections.shuffle(buttonList);
+            Collections.shuffle(buttonList);
 
-             jb1.setText(buttonList.get(0));
-             jb2.setText(buttonList.get(1));
-             jb3.setText(buttonList.get(2));
-             jb4.setText(buttonList.get(3));
-        }
-        else {
-            out.println("ENDROUND"+chosenCat+score);
+            jb1.setText(buttonList.get(0));
+            jb2.setText(buttonList.get(1));
+            jb3.setText(buttonList.get(2));
+            jb4.setText(buttonList.get(3));
+        } else {
+            out.println("ENDROUND" + chosenCat + score);
         }
     }
 
@@ -277,39 +182,37 @@ public class GamePanel extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if (e.getSource() == jb1) {
+        if (e.getSource() == jb1)
             if (jb1.getText().equals(CorrectAnswer)) {
                 score++;
                 updateGamepanel();
             } else {
                 updateGamepanel();
             }
-        }
-        if (e.getSource() == jb2) {
+
+        if (e.getSource() == jb2)
             if (jb2.getText().equals(CorrectAnswer)) {
                 score++;
                 updateGamepanel();
             } else {
-               updateGamepanel();
+                updateGamepanel();
             }
-        }
-        if (e.getSource() == jb3) {
-            if (jb3.getText().equals(CorrectAnswer)) {
 
+        if (e.getSource() == jb3)
+            if (jb3.getText().equals(CorrectAnswer)) {
                 score++;
                 updateGamepanel();
             } else {
-
                 updateGamepanel();
             }
-        }
-        if (e.getSource() == jb4) {
+
+        if (e.getSource() == jb4)
             if (jb4.getText().equals(CorrectAnswer)) {
                 score++;
                 updateGamepanel();
             } else {
                 updateGamepanel();
             }
-        }
     }
 }
+

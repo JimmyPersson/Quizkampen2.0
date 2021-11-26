@@ -29,7 +29,6 @@ public class GameServer extends Thread {
             e.printStackTrace();
         }
         roundLimit = Integer.parseInt(p.getProperty("customRoundLimit", "3"));
-        System.out.println(roundLimit);
         this.socket1 = socket1;
         this.socket2 = socket2;
 
@@ -68,7 +67,6 @@ public class GameServer extends Thread {
                     } else if (responseInput.startsWith("ENDROUND")) {
                         chosenCat = responseInput.substring(8, responseInput.length() - 1);
                         score = score + (responseInput.substring(responseInput.length() - 1));
-                        System.out.println("Score p1: " + score);
                         output.println("SCORE" + score);
 
                         output2.println("CAT" + chosenCat);
@@ -86,7 +84,6 @@ public class GameServer extends Thread {
                      if (responseInput2.startsWith("ENDROUND")) {
                         playedCat = chosenCat;
                         score = score + (responseInput2.substring(responseInput2.length() - 1));
-                        System.out.println("Score p2: " + score);
                         output2.println("SCORE" + score);
                         output.println("ROUNDSCORE" + score);
                         output2.println("WAITING");
