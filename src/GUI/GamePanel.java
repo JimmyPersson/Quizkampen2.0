@@ -32,6 +32,7 @@ public class GamePanel extends JPanel implements ActionListener {
     private int score = 0;
     private int loop = 0;
     private int loopLimit;
+    private ArrayList<String> buttonList = new ArrayList<>();
 
 
     public GamePanel(PrintWriter out, String responseInput) throws IOException {
@@ -83,6 +84,16 @@ public class GamePanel extends JPanel implements ActionListener {
         Answer4 = questionList.get(4);
         CorrectAnswer = Answer1;
 
+        buttonList.add(Answer1);
+        buttonList.add(Answer2);
+        buttonList.add(Answer3);
+        buttonList.add(Answer4);
+        Collections.shuffle(buttonList);
+
+        jb1.setText(buttonList.get(0));
+        jb2.setText(buttonList.get(1));
+        jb3.setText(buttonList.get(2));
+        jb4.setText(buttonList.get(3));
 
         gbc.gridx = 0;
         gbc.weightx = 1;
@@ -241,11 +252,18 @@ public class GamePanel extends JPanel implements ActionListener {
             CorrectAnswer = Answer1;
 
             jl1.setText(Question);
+             buttonList.clear();
+             buttonList.add(Answer1);
+             buttonList.add(Answer2);
+             buttonList.add(Answer3);
+             buttonList.add(Answer4);
 
-            jb1.setText(Answer1);
-            jb2.setText(Answer2);
-            jb3.setText(Answer3);
-            jb4.setText(Answer4);
+             Collections.shuffle(buttonList);
+
+             jb1.setText(buttonList.get(0));
+             jb2.setText(buttonList.get(1));
+             jb3.setText(buttonList.get(2));
+             jb4.setText(buttonList.get(3));
         }
         else {
             out.println("ENDROUND"+chosenCat+score);
