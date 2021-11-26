@@ -82,7 +82,7 @@ public class Client extends JFrame {
                ScorePanel scorepan = new ScorePanel(out, score);
                add(scorepan);
                revalidate();
-               Thread.sleep(3000);
+               Thread.sleep(4000);
            }
            else if (response.startsWith("NEXT")) {
                getContentPane().removeAll();
@@ -98,11 +98,9 @@ public class Client extends JFrame {
                ScorePanel scorepan = new ScorePanel(out, score);
                add(scorepan);
                revalidate();
-               Thread.sleep(3000);
+               Thread.sleep(4000);
            }
-           else if (response.startsWith("EXIT")){
-               Thread.sleep(500000000);
-           }
+
 
 
        } catch (IOException | InterruptedException e) {

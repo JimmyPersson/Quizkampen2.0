@@ -51,10 +51,10 @@ public class GameServer extends Thread {
 
     public void run() {
 
-        test:
+        loop:
         while (true) {
             if (roundCounter == roundLimit) {
-                output.println("EXIT");
+
                 break;
             }
             while (true) {
@@ -89,7 +89,7 @@ public class GameServer extends Thread {
                         output2.println("WAITING");
                         output.println("NEXT");
                         roundCounter++;
-                        continue test;
+                        continue loop;
                     }
 
                 } catch (IOException e) {
